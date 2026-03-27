@@ -377,7 +377,7 @@ function setLanguage(lang) {
     }
   });
 
-  const cvPath = lang === "fr" ? "cv/cv-fr.pdf" : "cv/cv-en.pdf";
+  const cvPath = lang === "fr" ? "cv-fr.pdf" : "cv-en.pdf";
   cvLinks.forEach((link) => {
     if (link) {
       link.setAttribute("href", cvPath);
