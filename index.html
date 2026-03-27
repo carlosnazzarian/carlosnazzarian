@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Carlos Nazzarian</title>
+  <title>Carlos Nazzarian | Portfolio</title>
   <meta
     name="description"
-    content="Portfolio personnel de Carlos Nazzarian - projets, compétences, CV et contact."
+    content="Portfolio de Carlos Nazzarian, diplômé en génie biomédical spécialisé en instrumentation, systèmes embarqués, électronique et R&D."
   />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -15,17 +15,32 @@
     <nav class="navbar container">
       <a href="#home" class="logo">Carlos Nazzarian</a>
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
-        ☰
-      </button>
+      <div class="nav-right">
+        <div class="language-switcher" aria-label="Language switcher">
+          <button id="lang-fr" class="lang-btn active" type="button">FR</button>
+          <button id="lang-en" class="lang-btn" type="button">EN</button>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
+          ☰
+        </button>
+      </div>
 
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Accueil</a></li>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#skills">Compétences</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="mon-cv.pdf" target="_blank" class="nav-cv">CV</a></li>
+        <li><a href="#home" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+        <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Expérience</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#education" data-i18n="nav.education">Formation</a></li>
+        <li><a href="#highlights" data-i18n="nav.highlights">Réalisations</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li>
+          <a id="cv-link-nav" href="cv/cv-fr.pdf" target="_blank" class="nav-cv" data-i18n="nav.cv">
+            CV
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -35,23 +50,27 @@
     <section class="hero section" id="home">
       <div class="container hero-content">
         <div class="hero-text">
-          <p class="hero-tag">Portfolio personnel</p>
-          <h1>Bonjour, je suis <span>Carlos Nazzarian</span></h1>
-          <p class="hero-description">
-            Jeune diplômé en génie biomédical avec une expérience pratique en
-            systèmes à microcontrôleurs, instrumentation électronique, conception
-            de PCB, acquisition de signaux et intégration matériel–logiciel.
+          <p class="hero-tag" data-i18n="hero.tag">Portfolio professionnel</p>
+          <h1 data-i18n="hero.title">
+            Bonjour, je suis <span>Carlos Nazzarian</span>
+          </h1>
+          <p class="hero-description" data-i18n="hero.description">
+            Diplômé en génie biomédical spécialisé en systèmes embarqués,
+            instrumentation électronique et validation expérimentale.
           </p>
 
           <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-            <a href="mon-cv.pdf" target="_blank" class="btn btn-secondary">Ouvrir mon CV</a>
-            
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.projectsBtn">
+              Voir mes projets
+            </a>
+            <a id="cv-link-hero" href="cv/cv-fr.pdf" target="_blank" class="btn btn-secondary" data-i18n="hero.cvBtn">
+              Ouvrir mon CV
+            </a>
           </div>
         </div>
 
         <div class="hero-image">
-          <img src="profile.png" alt="Photo de profil de Carlos Nazzarian" />
+          <img src="profile.png" alt="Photo de profil de Carlos Nazzarian" id="profile-image" />
         </div>
       </div>
     </section>
@@ -60,28 +79,48 @@
     <section class="about section" id="about">
       <div class="container">
         <div class="section-title">
-          <h2>À propos</h2>
-          <p>Résumé professionnel</p>
+          <h2 data-i18n="about.title">À propos</h2>
+          <p data-i18n="about.subtitle">Résumé professionnel</p>
         </div>
 
         <div class="about-card">
-          <p>
-            Diplômé récent en génie biomédical de Polytechnique Montréal,
-            je m’intéresse particulièrement aux systèmes embarqués, au firmware,
-            à l’électronique, à l’instrumentation et à la R&D.
+          <p data-i18n="about.p1">
+            Je suis un diplômé récent en génie biomédical de Polytechnique Montréal,
+            avec un intérêt marqué pour les systèmes embarqués, l’électronique,
+            l’instrumentation, la validation et la recherche et développement.
           </p>
+          <p data-i18n="about.p2">
+            Mon parcours m’a permis de travailler sur des projets combinant matériel
+            et logiciel, notamment la conception de PCB, l’acquisition de signaux,
+            le prototypage expérimental, l’automatisation en Python et l’analyse
+            de données en laboratoire.
+          </p>
+          <p data-i18n="about.p3">
+            Je recherche actuellement une opportunité d’entrée en carrière où je
+            pourrai contribuer à des systèmes techniques concrets dans les domaines
+            du biomédical, de l’électronique, des systèmes embarqués ou de la R&D.
+          </p>
+        </div>
+      </div>
+    </section>
 
-          <p>
-            J’ai développé une expérience concrète en validation de circuits,
-            acquisition de données, prototypage, automatisation avec Python
-            et expérimentation en laboratoire.
-          </p>
+    <!-- EXPERTISE -->
+    <section class="expertise section" id="expertise">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="expertise.title">Expertise</h2>
+          <p data-i18n="expertise.subtitle">Ce que je peux apporter à votre équipe</p>
+        </div>
 
-          <p>
-            Mon objectif est d’obtenir un poste d’entrée en carrière en systèmes
-            embarqués, électronique, firmware ou recherche et développement,
-            où je pourrai contribuer à des projets techniques concrets.
-          </p>
+        <div class="skills-grid expertise-grid">
+          <div class="skill-box" data-i18n="expertise.item1">Développement de systèmes embarqués</div>
+          <div class="skill-box" data-i18n="expertise.item2">Instrumentation électronique</div>
+          <div class="skill-box" data-i18n="expertise.item3">Conception et débogage de PCB</div>
+          <div class="skill-box" data-i18n="expertise.item4">Acquisition et traitement de signaux</div>
+          <div class="skill-box" data-i18n="expertise.item5">Validation et essais matériels</div>
+          <div class="skill-box" data-i18n="expertise.item6">Automatisation de tests avec Python</div>
+          <div class="skill-box" data-i18n="expertise.item7">Intégration de systèmes biomédicaux</div>
+          <div class="skill-box" data-i18n="expertise.item8">Conception expérimentale</div>
         </div>
       </div>
     </section>
@@ -90,100 +129,151 @@
     <section class="projects section" id="projects">
       <div class="container">
         <div class="section-title">
-          <h2>Projets et expériences</h2>
-          <p>Expériences techniques pertinentes</p>
+          <h2 data-i18n="projects.title">Projets</h2>
+          <p data-i18n="projects.subtitle">Projets académiques et techniques pertinents</p>
         </div>
 
         <div class="projects-grid">
           <article class="project-card">
             <img src="project1.png" alt="Conception PCB pour potentiostat" class="project-image" />
             <div class="project-content">
-              <h3>Conception PCB pour potentiostat</h3>
-              <p>
-                Conception du schéma et du PCB pour réduire les problèmes de bruit
-                observés sur breadboard, avec validation expérimentale de la qualité
-                du signal.
+              <h3 data-i18n="projects.pcb.title">Conception PCB pour potentiostat</h3>
+              <p data-i18n="projects.pcb.desc">
+                Conception et réalisation d’un PCB pour un système de potentiostat afin
+                de réduire le bruit observé sur les prototypes montés sur breadboard.
               </p>
+              <ul class="project-list">
+                <li data-i18n="projects.pcb.b1">Optimisation du placement et du routage des composantes</li>
+                <li data-i18n="projects.pcb.b2">Validation par mesures comparatives à l’oscilloscope</li>
+                <li data-i18n="projects.pcb.b3">Amélioration de la stabilité et de la fiabilité du signal</li>
+              </ul>
               <p class="project-tech">
-                <strong>Technologies :</strong> KiCad, électronique analogique, oscilloscope
+                <strong data-i18n="projects.tech">Technologies :</strong>
+                KiCad, électronique analogique, oscilloscopes, validation expérimentale
               </p>
-              <div class="project-links">
-                <a href="#">Projet</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card">
             <img src="project2.png" alt="Projet LSCI" class="project-image" />
             <div class="project-content">
-              <h3>Projet LSCI</h3>
-              <p>
-                Développement d’un système d’acquisition optique combinant une source
-                laser et une caméra pour l’imagerie par contraste de speckle, avec
-                scripts Python pour l’acquisition et le traitement en temps réel.
+              <h3 data-i18n="projects.lsci.title">Projet LSCI</h3>
+              <p data-i18n="projects.lsci.desc">
+                Développement d’un système d’imagerie par contraste de speckle laser
+                combinant une source laser, une caméra et des scripts Python pour
+                l’acquisition et le traitement en temps réel.
               </p>
+              <ul class="project-list">
+                <li data-i18n="projects.lsci.b1">Intégration d’un montage optique expérimental</li>
+                <li data-i18n="projects.lsci.b2">Optimisation de l’illumination, de l’exposition et de l’acquisition</li>
+                <li data-i18n="projects.lsci.b3">Production de documentation technique et de procédures de test</li>
+              </ul>
               <p class="project-tech">
-                <strong>Technologies :</strong> Python, traitement d’images, instrumentation
+                <strong data-i18n="projects.tech">Technologies :</strong>
+                Python, traitement d’images, acquisition temps réel, instrumentation
               </p>
-              <div class="project-links">
-                <a href="#">Projet</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card">
-            <img src="project3.png" alt="Segmentation par deep learning" class="project-image" />
+            <img src="project3.png" alt="Segmentation d’images par deep learning" class="project-image" />
             <div class="project-content">
-              <h3>Segmentation d’images par deep learning</h3>
-              <p>
-                Préparation de jeux de données de microscopie, prétraitement,
-                entraînement de modèle, inférence et analyse morphométrique,
-                avec automatisation des flux par Python et Bash.
+              <h3 data-i18n="projects.dl.title">Segmentation d’images par deep learning</h3>
+              <p data-i18n="projects.dl.desc">
+                Préparation de jeux de données de microscopie, prétraitement, entraînement
+                de modèles, inférence et analyse morphométrique pour la segmentation d’axones.
               </p>
+              <ul class="project-list">
+                <li data-i18n="projects.dl.b1">Préparation de données et annotations manuelles</li>
+                <li data-i18n="projects.dl.b2">Automatisation des flux de travail avec Python et Bash</li>
+                <li data-i18n="projects.dl.b3">Évaluation quantitative des performances du modèle</li>
+              </ul>
               <p class="project-tech">
-                <strong>Technologies :</strong> Python, Bash, analyse d’images
+                <strong data-i18n="projects.tech">Technologies :</strong>
+                Python, Bash, analyse d’images, apprentissage automatique
               </p>
-              <div class="project-links">
-                <a href="#">Projet</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card">
-            <img src="project4.png" alt="Système microfluidique" class="project-image" />
+            <img src="project4.png" alt="Développement d’un système microfluidique" class="project-image" />
             <div class="project-content">
-              <h3>Développement d’un système microfluidique</h3>
-              <p>
-                Conception d’une chambre microfluidique compacte imprimée en 3D
-                pour électrodes sur papier, intégration des composantes fluidiques
-                et vérification de l’écoulement et de l’étanchéité.
+              <h3 data-i18n="projects.micro.title">Développement d’un système microfluidique</h3>
+              <p data-i18n="projects.micro.desc">
+                Conception d’une chambre microfluidique compacte imprimée en 3D pour
+                l’intégration d’électrodes sur papier et la réalisation d’essais expérimentaux.
               </p>
+              <ul class="project-list">
+                <li data-i18n="projects.micro.b1">Intégration des composantes fluidiques et mécaniques</li>
+                <li data-i18n="projects.micro.b2">Vérification de l’écoulement et de l’étanchéité</li>
+                <li data-i18n="projects.micro.b3">Support aux essais électrochimiques et à l’analyse des réponses</li>
+              </ul>
               <p class="project-tech">
-                <strong>Technologies :</strong> impression 3D, microfluidique, expérimentation
+                <strong data-i18n="projects.tech">Technologies :</strong>
+                Impression 3D, microfluidique, expérimentation, intégration de systèmes
               </p>
-              <div class="project-links">
-                <a href="#">Projet</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card">
-            <img src="images/project5.png" alt="Instrument de mesure électrochimique" class="project-image" />
+            <img src="project5.png" alt="Instrument de mesure électrochimique" class="project-image" />
             <div class="project-content">
-              <h3>Instrument de mesure électrochimique</h3>
-              <p>
-                Réalisation d’un circuit analogique avec amplificateurs opérationnels,
-                composants passifs et signaux générés par Arduino, puis validation
-                expérimentale du comportement du système.
+              <h3 data-i18n="projects.echem.title">Instrument de mesure électrochimique</h3>
+              <p data-i18n="projects.echem.desc">
+                Réalisation d’un circuit de mesure analogique utilisant des amplificateurs
+                opérationnels, des composants passifs et des signaux générés par Arduino.
               </p>
+              <ul class="project-list">
+                <li data-i18n="projects.echem.b1">Validation des formes d’onde et du comportement du circuit</li>
+                <li data-i18n="projects.echem.b2">Expériences de voltammétrie sur différents analytes</li>
+                <li data-i18n="projects.echem.b3">Documentation des résultats, limites et observations expérimentales</li>
+              </ul>
               <p class="project-tech">
-                <strong>Technologies :</strong> Arduino, électronique analogique, oscilloscope
+                <strong data-i18n="projects.tech">Technologies :</strong>
+                Arduino, électronique analogique, oscilloscopes, instrumentation
               </p>
-              <div class="project-links">
-                <a href="#">Projet</a>
-              </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience section" id="experience">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="experience.title">Expérience</h2>
+          <p data-i18n="experience.subtitle">Expérience professionnelle et de recherche</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date" data-i18n="experience.basyL.date">Été 2024</div>
+            <div class="timeline-content">
+              <h3 data-i18n="experience.basyL.title">Stagiaire de recherche — Laboratoire BASyL, Polytechnique Montréal</h3>
+              <p data-i18n="experience.basyL.desc">
+                Contribution à des projets d’instrumentation et d’expérimentation biomédicale
+                incluant la conception de PCB, des systèmes microfluidiques et la validation
+                de montages expérimentaux.
+              </p>
+              <ul>
+                <li data-i18n="experience.basyL.b1">Validation matérielle avec oscilloscopes et outils de mesure</li>
+                <li data-i18n="experience.basyL.b2">Exécution de procédures expérimentales et analyse de résultats</li>
+                <li data-i18n="experience.basyL.b3">Rédaction de documentation technique et d’ingénierie</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date" data-i18n="experience.ct.date">2022 – présent</div>
+            <div class="timeline-content">
+              <h3 data-i18n="experience.ct.title">Préposé au service à la clientèle — Couche-Tard</h3>
+              <p data-i18n="experience.ct.desc">
+                Expérience dans un environnement rapide nécessitant autonomie,
+                communication, rigueur et résolution de problèmes au quotidien.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -192,58 +282,98 @@
     <section class="skills section" id="skills">
       <div class="container">
         <div class="section-title">
-          <h2>Compétences</h2>
-          <p>Compétences techniques principales</p>
+          <h2 data-i18n="skills.title">Compétences</h2>
+          <p data-i18n="skills.subtitle">Compétences techniques principales</p>
         </div>
 
-        <div class="skills-grid">
-          <div class="skill-box">Arduino</div>
-          <div class="skill-box">C / C++</div>
-          <div class="skill-box">Python</div>
-          <div class="skill-box">MATLAB</div>
-          <div class="skill-box">Bash</div>
-          <div class="skill-box">KiCad</div>
-          <div class="skill-box">Oscilloscope</div>
-          <div class="skill-box">Multimètre</div>
-          <div class="skill-box">DAQ</div>
-          <div class="skill-box">Acquisition de signaux</div>
-          <div class="skill-box">Instrumentation</div>
-          <div class="skill-box">PCB Design</div>
-          <div class="skill-box">Automatisation de tests</div>
-          <div class="skill-box">NumPy</div>
-          <div class="skill-box">SciPy</div>
-          <div class="skill-box">Matplotlib</div>
-          <div class="skill-box">CATIA V5</div>
-          <div class="skill-box">FreeCAD</div>
-          <div class="skill-box">Hardware Debugging</div>
-          <div class="skill-box">Documentation technique</div>
+        <div class="skills-groups">
+          <div class="skill-group-card">
+            <h3 data-i18n="skills.group1.title">Systèmes embarqués et électronique</h3>
+            <p data-i18n="skills.group1.text">
+              Arduino, C/C++, acquisition de signaux, capteurs, intégration matériel-logiciel, conception de PCB
+            </p>
+          </div>
+
+          <div class="skill-group-card">
+            <h3 data-i18n="skills.group2.title">Instrumentation et validation</h3>
+            <p data-i18n="skills.group2.text">
+              Oscilloscopes, multimètres, DAQ, dépannage matériel, calibration, vérification de performance
+            </p>
+          </div>
+
+          <div class="skill-group-card">
+            <h3 data-i18n="skills.group3.title">Programmation et automatisation</h3>
+            <p data-i18n="skills.group3.text">
+              Python, MATLAB, Bash, automatisation de tests, pipelines d’acquisition et de traitement
+            </p>
+          </div>
+
+          <div class="skill-group-card">
+            <h3 data-i18n="skills.group4.title">Analyse de données</h3>
+            <p data-i18n="skills.group4.text">
+              NumPy, SciPy, Matplotlib, traitement d’images, analyse expérimentale
+            </p>
+          </div>
+
+          <div class="skill-group-card">
+            <h3 data-i18n="skills.group5.title">CAD et prototypage</h3>
+            <p data-i18n="skills.group5.text">
+              KiCad, CATIA V5, FreeCAD, impression 3D, fabrication et intégration de prototypes
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- EDUCATION -->
-    <section class="about section" id="education">
+    <section class="education section" id="education">
       <div class="container">
         <div class="section-title">
-          <h2>Formation</h2>
-          <p>Parcours académique et certificats</p>
+          <h2 data-i18n="education.title">Formation</h2>
+          <p data-i18n="education.subtitle">Parcours académique et certificats</p>
         </div>
 
         <div class="about-card">
-          <p>
-            <strong>Baccalauréat en génie biomédical</strong> — Polytechnique Montréal
-          </p>
-          <p>
-            Cours pertinents : circuits, électromagnétisme, réseaux informatiques,
-            instrumentation et mesures, physique moderne pour ingénieurs,
-            méthodes numériques, traitement du signal, imagerie biomédicale
-            et instrumentation embarquée.
-          </p>
-          <p>
-            <strong>Certificats :</strong><br />
-            Python Specialization – Coursera (University of Michigan)<br />
-            Advanced Embedded Systems with Arduino – Coursera (Packt)
-          </p>
+          <p><strong data-i18n="education.degreeLabel">Diplôme :</strong> <span data-i18n="education.degreeValue">Baccalauréat en génie biomédical — Polytechnique Montréal</span></p>
+          <p><strong data-i18n="education.dateLabel">Période :</strong> <span data-i18n="education.dateValue">2021 – 2025</span></p>
+          <p><strong data-i18n="education.gpaLabel">Moyenne cumulative :</strong> <span data-i18n="education.gpaValue">3,13 / 4,00</span></p>
+
+          <h3 class="subsection-title" data-i18n="education.courseworkTitle">Cours techniques clés</h3>
+          <ul class="education-list">
+            <li data-i18n="education.c1">Circuits électriques</li>
+            <li data-i18n="education.c2">Instrumentation et mesures biomédicales</li>
+            <li data-i18n="education.c3">Champs électromagnétiques</li>
+            <li data-i18n="education.c4">Traitement numérique d’images médicales</li>
+            <li data-i18n="education.c5">Principes d’imagerie biomédicale</li>
+            <li data-i18n="education.c6">Modélisation et commande en physiologie</li>
+            <li data-i18n="education.c7">Réseaux informatiques</li>
+          </ul>
+
+          <h3 class="subsection-title" data-i18n="education.certTitle">Certificats</h3>
+          <ul class="education-list">
+            <li data-i18n="education.cert1">Python Specialization — Coursera (University of Michigan)</li>
+            <li data-i18n="education.cert2">Advanced Embedded Systems with Arduino — Coursera (Packt)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights section" id="highlights">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="highlights.title">Réalisations</h2>
+          <p data-i18n="highlights.subtitle">Quelques points forts de mon parcours</p>
+        </div>
+
+        <div class="about-card">
+          <ul class="highlight-list">
+            <li data-i18n="highlights.h1">Conçu et validé des systèmes matériels en environnement de laboratoire</li>
+            <li data-i18n="highlights.h2">Amélioré la qualité du signal dans un système de mesure sur PCB</li>
+            <li data-i18n="highlights.h3">Développé des pipelines Python pour l’acquisition et le traitement d’images en temps réel</li>
+            <li data-i18n="highlights.h4">Automatisé des flux de traitement et d’analyse de données expérimentales</li>
+            <li data-i18n="highlights.h5">Contribué à des projets interdisciplinaires combinant électronique, logiciel et expérimentation biomédicale</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -252,22 +382,30 @@
     <section class="contact section" id="contact">
       <div class="container">
         <div class="section-title">
-          <h2>Contact</h2>
-          <p>Vous pouvez me joindre ici</p>
+          <h2 data-i18n="contact.title">Contact</h2>
+          <p data-i18n="contact.subtitle">Vous pouvez me joindre ici</p>
         </div>
 
         <div class="contact-card">
-          <p><strong>Nom :</strong> Carlos Nazzarian</p>
-          <p><strong>Localisation :</strong> Laval, QC</p>
-          <p><strong>Téléphone :</strong> 514-662-4083</p>
-          <p><strong>Email :</strong> <a href="mailto:carlos.naz58@gmail.com">carlos.naz58@gmail.com</a></p>
+          <p><strong data-i18n="contact.nameLabel">Nom :</strong> Carlos Nazzarian</p>
+          <p><strong data-i18n="contact.locationLabel">Localisation :</strong> Laval, QC, Canada</p>
+          <p><strong data-i18n="contact.phoneLabel">Téléphone :</strong> 514-662-4083</p>
           <p>
-            <strong>LinkedIn :</strong>
-            <a href="https://www.linkedin.com/in/carlos-nazzarian-3a0a7b21b/" target="_blank">
-                linkedin.com/in/carlos-nazzarian
-             </a>
-         </p>
-          <p><strong>CV :</strong> <a href="cv/mon-cv.pdf" target="_blank">Ouvrir le CV</a></p>
+            <strong data-i18n="contact.emailLabel">Email :</strong>
+            <a href="mailto:carlos.naz58@gmail.com">carlos.naz58@gmail.com</a>
+          </p>
+          <p>
+            <strong data-i18n="contact.linkedinLabel">LinkedIn :</strong>
+            <a href="https://www.linkedin.com/in/carlos-nazzarian-3a0a7b21b/" target="_blank" rel="noopener noreferrer">
+              linkedin.com/in/carlos-nazzarian-3a0a7b21b
+            </a>
+          </p>
+          <p>
+            <strong data-i18n="contact.cvLabel">CV :</strong>
+            <a id="cv-link-contact" href="cv/cv-fr.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contact.cvOpen">
+              Ouvrir le CV
+            </a>
+          </p>
         </div>
       </div>
     </section>
@@ -275,7 +413,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 Carlos Nazzarian. Tous droits réservés.</p>
+      <p data-i18n="footer.text">© 2026 Carlos Nazzarian. Tous droits réservés.</p>
     </div>
   </footer>
 
