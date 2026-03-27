@@ -1,1 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Carlos Nazzarian</title>
+  <meta
+    name="description"
+    content="Portfolio personnel de Carlos Nazzarian - projets, compétences, CV et contact."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar container">
+      <a href="#home" class="logo">Carlos Nazzarian</a>
 
+      <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="cv/mon-cv.pdf" target="_blank" class="nav-cv">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero section" id="home">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="hero-tag">Portfolio personnel</p>
+          <h1>Bonjour, je suis <span>Carlos Nazzarian</span></h1>
+          <p class="hero-description">
+            Jeune diplômé en génie biomédical avec une expérience pratique en
+            systèmes à microcontrôleurs, instrumentation électronique, conception
+            de PCB, acquisition de signaux et intégration matériel–logiciel.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+            <a href="cv/mon-cv.pdf" target="_blank" class="btn btn-secondary">Ouvrir mon CV</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="images/profile.png" alt="Photo de profil de Carlos Nazzarian" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>À propos</h2>
+          <p>Résumé professionnel</p>
+        </div>
+
+        <div class="about-card">
+          <p>
+            Diplômé récent en génie biomédical de Polytechnique Montréal,
+            je m’intéresse particulièrement aux systèmes embarqués, au firmware,
+            à l’électronique, à l’instrumentation et à la R&D.
+          </p>
+
+          <p>
+            J’ai développé une expérience concrète en validation de circuits,
+            acquisition de données, prototypage, automatisation avec Python
+            et expérimentation en laboratoire.
+          </p>
+
+          <p>
+            Mon objectif est d’obtenir un poste d’entrée en carrière en systèmes
+            embarqués, électronique, firmware ou recherche et développement,
+            où je pourrai contribuer à des projets techniques concrets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projets et expériences</h2>
+          <p>Expériences techniques pertinentes</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <img src="images/project1.png" alt="Conception PCB pour potentiostat" class="project-image" />
+            <div class="project-content">
+              <h3>Conception PCB pour potentiostat</h3>
+              <p>
+                Conception du schéma et du PCB pour réduire les problèmes de bruit
+                observés sur breadboard, avec validation expérimentale de la qualité
+                du signal.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies :</strong> KiCad, électronique analogique, oscilloscope
+              </p>
+              <div class="project-links">
+                <a href="#">Projet</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="images/project2.png" alt="Projet LSCI" class="project-image" />
+            <div class="project-content">
+              <h3>Projet LSCI</h3>
+              <p>
+                Développement d’un système d’acquisition optique combinant une source
+                laser et une caméra pour l’imagerie par contraste de speckle, avec
+                scripts Python pour l’acquisition et le traitement en temps réel.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies :</strong> Python, traitement d’images, instrumentation
+              </p>
+              <div class="project-links">
+                <a href="#">Projet</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="images/project3.png" alt="Segmentation par deep learning" class="project-image" />
+            <div class="project-content">
+              <h3>Segmentation d’images par deep learning</h3>
+              <p>
+                Préparation de jeux de données de microscopie, prétraitement,
+                entraînement de modèle, inférence et analyse morphométrique,
+                avec automatisation des flux par Python et Bash.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies :</strong> Python, Bash, analyse d’images
+              </p>
+              <div class="project-links">
+                <a href="#">Projet</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="images/project4.png" alt="Système microfluidique" class="project-image" />
+            <div class="project-content">
+              <h3>Développement d’un système microfluidique</h3>
+              <p>
+                Conception d’une chambre microfluidique compacte imprimée en 3D
+                pour électrodes sur papier, intégration des composantes fluidiques
+                et vérification de l’écoulement et de l’étanchéité.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies :</strong> impression 3D, microfluidique, expérimentation
+              </p>
+              <div class="project-links">
+                <a href="#">Projet</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="images/project5.png" alt="Instrument de mesure électrochimique" class="project-image" />
+            <div class="project-content">
+              <h3>Instrument de mesure électrochimique</h3>
+              <p>
+                Réalisation d’un circuit analogique avec amplificateurs opérationnels,
+                composants passifs et signaux générés par Arduino, puis validation
+                expérimentale du comportement du système.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies :</strong> Arduino, électronique analogique, oscilloscope
+              </p>
+              <div class="project-links">
+                <a href="#">Projet</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Compétences</h2>
+          <p>Compétences techniques principales</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-box">Arduino</div>
+          <div class="skill-box">C / C++</div>
+          <div class="skill-box">Python</div>
+          <div class="skill-box">MATLAB</div>
+          <div class="skill-box">Bash</div>
+          <div class="skill-box">KiCad</div>
+          <div class="skill-box">Oscilloscope</div>
+          <div class="skill-box">Multimètre</div>
+          <div class="skill-box">DAQ</div>
+          <div class="skill-box">Acquisition de signaux</div>
+          <div class="skill-box">Instrumentation</div>
+          <div class="skill-box">PCB Design</div>
+          <div class="skill-box">Automatisation de tests</div>
+          <div class="skill-box">NumPy</div>
+          <div class="skill-box">SciPy</div>
+          <div class="skill-box">Matplotlib</div>
+          <div class="skill-box">CATIA V5</div>
+          <div class="skill-box">FreeCAD</div>
+          <div class="skill-box">Hardware Debugging</div>
+          <div class="skill-box">Documentation technique</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="about section" id="education">
+      <div class="container">
+        <div class="section-title">
+          <h2>Formation</h2>
+          <p>Parcours académique et certificats</p>
+        </div>
+
+        <div class="about-card">
+          <p>
+            <strong>Baccalauréat en génie biomédical</strong> — Polytechnique Montréal
+          </p>
+          <p>
+            Cours pertinents : circuits, électromagnétisme, réseaux informatiques,
+            instrumentation et mesures, physique moderne pour ingénieurs,
+            méthodes numériques, traitement du signal, imagerie biomédicale
+            et instrumentation embarquée.
+          </p>
+          <p>
+            <strong>Certificats :</strong><br />
+            Python Specialization – Coursera (University of Michigan)<br />
+            Advanced Embedded Systems with Arduino – Coursera (Packt)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Vous pouvez me joindre ici</p>
+        </div>
+
+        <div class="contact-card">
+          <p><strong>Nom :</strong> Carlos Nazzarian</p>
+          <p><strong>Localisation :</strong> Laval, QC</p>
+          <p><strong>Téléphone :</strong> 514-662-4083</p>
+          <p><strong>Email :</strong> <a href="mailto:carlos.naz58@gmail.com">carlos.naz58@gmail.com</a></p>
+          <p>
+            <strong>LinkedIn :</strong>
+            <a href="https://www.linkedin.com/in/carlos-nazzarian-3a0a7b21b/" target="_blank">
+                linkedin.com/in/carlos-nazzarian
+             </a>
+         </p>
+          <p><strong>CV :</strong> <a href="cv/mon-cv.pdf" target="_blank">Ouvrir le CV</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Carlos Nazzarian. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
