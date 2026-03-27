@@ -325,6 +325,14 @@ a {
 .highlight-list li {
   margin-bottom: 10px;
 }
+.education-list a {
+  color: #93c5fd;
+  transition: 0.2s;
+}
+
+.education-list a:hover {
+  text-decoration: underline;
+}
 
 /* PROJECTS */
 .projects-grid {
