@@ -65,6 +65,8 @@ const translations = {
     "projects.pcb.b1": "Optimisation du placement et du routage des composantes",
     "projects.pcb.b2": "Validation par mesures comparatives à l’oscilloscope",
     "projects.pcb.b3": "Amélioration de la stabilité et de la fiabilité du signal",
+    "projects.pcb.techList":
+    "KiCad, électronique analogique, oscilloscopes, validation expérimentale",
 
     "projects.lsci.title": "Projet LSCI",
     "projects.lsci.desc":
@@ -72,6 +74,8 @@ const translations = {
     "projects.lsci.b1": "Intégration d’un montage optique expérimental",
     "projects.lsci.b2": "Optimisation de l’illumination, de l’exposition et de l’acquisition",
     "projects.lsci.b3": "Production de documentation technique et de procédures de test",
+    "projects.lsci.techList":
+    "Python, traitement d’images, acquisition temps réel, instrumentation",
 
     "projects.dl.title": "Segmentation d’images par deep learning",
     "projects.dl.desc":
@@ -79,6 +83,8 @@ const translations = {
     "projects.dl.b1": "Préparation de données et annotations manuelles",
     "projects.dl.b2": "Automatisation des flux de travail avec Python et Bash",
     "projects.dl.b3": "Évaluation quantitative des performances du modèle",
+    "projects.dl.techList":
+    "Python, Bash, analyse d’images, apprentissage automatique",
 
     "projects.micro.title": "Développement d’un système microfluidique",
     "projects.micro.desc":
@@ -86,6 +92,8 @@ const translations = {
     "projects.micro.b1": "Intégration des composantes fluidiques et mécaniques",
     "projects.micro.b2": "Vérification de l’écoulement et de l’étanchéité",
     "projects.micro.b3": "Support aux essais électrochimiques et à l’analyse des réponses",
+    "projects.micro.techList":
+    "Impression 3D, microfluidique, expérimentation, intégration de systèmes",
 
     "projects.echem.title": "Instrument de mesure électrochimique",
     "projects.echem.desc":
@@ -101,6 +109,8 @@ const translations = {
     "projects.radar.b2": "Modes de balayage automatique et manuel",
     "projects.radar.b3": "Interface radar interactive développée avec Pygame",
     "projects.radar.b4": "Système de contrôle via joystick et interface logicielle",
+    "projects.radar.techList":
+    "Arduino, Python, Pygame, systèmes embarqués, communication série",
 
 
     "experience.title": "Expérience",
@@ -241,6 +251,9 @@ const translations = {
     "projects.pcb.b1": "Optimized component placement and routing",
     "projects.pcb.b2": "Validated performance through comparative oscilloscope measurements",
     "projects.pcb.b3": "Improved signal stability and measurement reliability",
+    "projects.pcb.techList":
+    "KiCad, analog electronics, oscilloscopes, experimental validation",
+
 
     "projects.lsci.title": "LSCI Project",
     "projects.lsci.desc":
@@ -248,6 +261,8 @@ const translations = {
     "projects.lsci.b1": "Integrated an experimental optical setup",
     "projects.lsci.b2": "Optimized illumination, exposure, and acquisition settings",
     "projects.lsci.b3": "Produced technical documentation and test procedures",
+    "projects.lsci.techList":
+    "Python, image processing, real-time acquisition, instrumentation",
 
     "projects.dl.title": "Deep Learning Image Segmentation",
     "projects.dl.desc":
@@ -255,6 +270,8 @@ const translations = {
     "projects.dl.b1": "Prepared datasets and manual labels",
     "projects.dl.b2": "Automated workflows using Python and Bash",
     "projects.dl.b3": "Evaluated model performance with quantitative metrics",
+    "projects.dl.techList":
+    "Python, Bash, image analysis, machine learning",
 
     "projects.micro.title": "Microfluidic System Development",
     "projects.micro.desc":
@@ -262,6 +279,8 @@ const translations = {
     "projects.micro.b1": "Integrated fluidic and mechanical components",
     "projects.micro.b2": "Verified fluid flow and sealing performance",
     "projects.micro.b3": "Supported electrochemical testing and response analysis",
+    "projects.micro.techList":
+    "3D printing, microfluidics, experimentation, systems integration",
 
     "projects.echem.title": "Electrochemical Measurement Instrument",
     "projects.echem.desc":
@@ -282,6 +301,8 @@ const translations = {
     "Interactive radar interface developed using Pygame",
     "projects.radar.b4":
     "Control system using both joystick and software interface",
+    "projects.radar.techList":
+    "Arduino, Python, Pygame, embedded systems, serial communication",
 
     "experience.title": "Experience",
     "experience.subtitle": "Research and professional experience",
