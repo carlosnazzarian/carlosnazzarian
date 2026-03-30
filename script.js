@@ -94,6 +94,15 @@ const translations = {
     "projects.echem.b2": "Expériences de voltammétrie sur différents analytes",
     "projects.echem.b3": "Documentation des résultats, limites et observations expérimentales",
 
+    "projects.radar.title": "Système Mini Radar",
+    "projects.radar.desc":
+      "Système radar en temps réel utilisant Arduino, un capteur ultrasonique, un servomoteur et une interface Python pour la visualisation et le contrôle.",
+    "projects.radar.b1": "Communication série en temps réel entre Arduino et Python",
+    "projects.radar.b2": "Modes de balayage automatique et manuel",
+    "projects.radar.b3": "Interface radar interactive développée avec Pygame",
+    "projects.radar.b4": "Système de contrôle via joystick et interface logicielle",
+
+
     "experience.title": "Expérience",
     "experience.subtitle": "Expérience professionnelle et de recherche",
     "experience.basyL.date": "Été 2024",
@@ -260,6 +269,19 @@ const translations = {
     "projects.echem.b1": "Validated waveforms and circuit behavior",
     "projects.echem.b2": "Performed voltammetry experiments on different analytes",
     "projects.echem.b3": "Documented results, limitations, and experimental observations",
+
+    "projects.radar.title": "Mini Radar System",
+
+    "projects.radar.desc":
+    "Real-time radar system using Arduino, an ultrasonic sensor, a servo motor, and a Python interface for visualization and control.",
+    "projects.radar.b1":
+    "Real-time serial communication between Arduino and Python",
+    "projects.radar.b2":
+    "Automatic and manual scanning modes",
+    "projects.radar.b3":
+    "Interactive radar interface developed using Pygame",
+    "projects.radar.b4":
+    "Control system using both joystick and software interface",
 
     "experience.title": "Experience",
     "experience.subtitle": "Research and professional experience",
