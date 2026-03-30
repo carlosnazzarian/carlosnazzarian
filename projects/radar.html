@@ -1,1 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Radar Arduino | Carlos Nazzarian</title>
+  <meta
+    name="description"
+    content="Projet Mini Radar Arduino de Carlos Nazzarian : système embarqué avec capteur ultrasonique, servo, joystick, communication série et interface Python en temps réel."
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: #1e293b;
+      --card-2: #243247;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --accent: #22d3ee;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-back {
+      background: var(--primary);
+      color: white !important;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .nav-back:hover {
+      background: var(--primary-hover);
+    }
+
+    .hero {
+      padding: 110px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(34, 211, 238, 0.12);
+      color: #67e8f9;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.04rem;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-card,
+    .section-card,
+    .stat-card,
+    .feature-card,
+    .timeline-card,
+    .gallery-card,
+    .cta-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .hero-card img,
+    .gallery-card img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: 34px 0 78px;
+    }
+
+    .section-title {
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .section-card {
+      padding: 28px;
+    }
+
+    .section-card p,
+    .section-card li,
+    .feature-card p,
+    .timeline-card p,
+    .cta-card p {
+      color: var(--muted);
+    }
+
+    .section-card ul,
+    .timeline-card ul {
+      padding-left: 20px;
+      margin-top: 14px;
+    }
+
+    .section-card li,
+    .timeline-card li {
+      margin-bottom: 10px;
+    }
+
+    .stats-grid,
+    .features-grid,
+    .gallery-grid,
+    .stack-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .stat-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .label {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature-card {
+      padding: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stack-grid {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 18px;
+    }
+
+    .stack-item {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .stack-item h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-card {
+      padding: 22px;
+    }
+
+    .timeline-card .step {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #93c5fd;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-card {
+      padding: 16px;
+    }
+
+    .gallery-card figcaption {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+
+    .cta-card {
+      padding: 32px;
+      text-align: center;
+    }
+
+    .cta-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.9rem;
+    }
+
+    .cta-card p {
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    code.inline {
+      font-family: Consolas, monospace;
+      color: #bfdbfe;
+      background: rgba(59, 130, 246, 0.08);
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.18);
+    }
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .split-grid,
+      .features-grid,
+      .gallery-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 84px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar container">
+      <a href="../index.html" class="logo">Carlos Nazzarian</a>
+      <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="../index.html#projects" class="nav-back">← Back to Portfolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Embedded Systems • Arduino • Python UI</span>
+          <h1>Mini <span>Radar System</span></h1>
+          <p>
+            A personal embedded project combining an ultrasonic sensor, servo motor,
+            joystick-based manual control, serial communication, and a custom Python
+            radar interface for real-time visualization and interaction.
+          </p>
+          <div class="hero-buttons">
+            <a href="#overview" class="btn btn-primary">Explore the Project</a>
+            <a href="#gallery" class="btn btn-secondary">See Interface & Setup</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="../radar-ui.png" alt="Mini Radar Python interface screenshot" />
+        </div>
+      </div>
+
+      <div class="container stats-grid">
+        <div class="stat-card">
+          <div class="value">2</div>
+          <div class="label">Control modes</div>
+        </div>
+        <div class="stat-card">
+          <div class="value">3</div>
+          <div class="label">System layers</div>
+        </div>
+        <div class="stat-card">
+          <div class="value">RT</div>
+          <div class="label">Real-time visualization</div>
+        </div>
+        <div class="stat-card">
+          <div class="value">HW + SW</div>
+          <div class="label">Full integration project</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-title">
+          <h2>Project Overview</h2>
+          <p>What the project does and why it matters</p>
+        </div>
+
+        <div class="section-card">
+          <p>
+            This project simulates a compact radar-like scanning system. An Arduino
+            controls a servo motor that sweeps an ultrasonic sensor across an angle range.
+            Distance measurements are sent to a Python application through serial
+            communication, where a custom Pygame dashboard renders the scan in real time.
+          </p>
+          <p>
+            The system supports both <strong>automatic scanning</strong> and
+            <strong>manual operation</strong>. In manual mode, the servo can be controlled
+            either with a physical joystick or from the desktop interface, which makes the
+            project a strong demonstration of embedded control, UI design, and hardware/software integration.
+          </p>
+          <ul>
+            <li>Real-time distance measurement using an ultrasonic sensor</li>
+            <li>Servo scanning across a defined angular range</li>
+            <li>Manual control from both joystick hardware and Python interface</li>
+            <li>Live radar visualization with sweep animation and detections</li>
+            <li>Bidirectional serial communication between Arduino and desktop app</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Key Features</h2>
+          <p>The most important technical capabilities of the system</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3>Automatic Scan Mode</h3>
+            <p>
+              The Arduino continuously sweeps the servo from side to side and streams
+              angle and distance data to the Python application for live rendering.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Manual Dual Control</h3>
+            <p>
+              The user can switch to manual mode and aim the sensor using a joystick or
+              directly from the Python interface with on-screen controls.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Interactive Tactical UI</h3>
+            <p>
+              The desktop application displays current angle, distance, mode, status,
+              and animated target traces in a radar-inspired interface.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Object Detection Display</h3>
+            <p>
+              Valid distance measurements are transformed into radar points and persisted
+              visually to help interpret the movement and location of detected objects.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Serial Command Handling</h3>
+            <p>
+              The Python application can send commands such as <code class="inline">AUTO</code>,
+              <code class="inline">MANUAL</code>, <code class="inline">ANGLE:x</code>, and joystick handoff logic.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Embedded Debug & Iteration</h3>
+            <p>
+              The project required debugging state handling, mode priority, control conflicts,
+              layout tuning, and clean shutdown behavior between software and hardware.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-title">
+          <h2>System Architecture</h2>
+          <p>Hardware, firmware, and desktop layers working together</p>
+        </div>
+
+        <div class="split-grid">
+          <div class="section-card">
+            <h3 style="margin-bottom: 14px;">Hardware Layer</h3>
+            <p>
+              The physical prototype uses an Arduino board, an HC-SR04 ultrasonic sensor,
+              a servo motor for angular scanning, and a joystick module for local manual input.
+            </p>
+            <div class="stack-grid">
+              <div class="stack-item">
+                <h4>Arduino</h4>
+                <p>Central controller executing the real-time logic and hardware coordination.</p>
+              </div>
+              <div class="stack-item">
+                <h4>Ultrasonic Sensor</h4>
+                <p>Measures object distance and provides the raw data for the radar display.</p>
+              </div>
+              <div class="stack-item">
+                <h4>Servo Motor</h4>
+                <p>Rotates the sensor across an angular field to simulate a scanning radar.</p>
+              </div>
+              <div class="stack-item">
+                <h4>Joystick</h4>
+                <p>Allows manual aiming and mode interaction directly from the hardware setup.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <h3 style="margin-bottom: 14px;">Software Layer</h3>
+            <p>
+              The desktop application is written in Python using Pygame and communicates with the
+              Arduino over a serial link. It interprets angle-distance packets and transforms them
+              into a real-time radar-like visualization.
+            </p>
+            <div class="stack-grid">
+              <div class="stack-item">
+                <h4>Arduino Firmware</h4>
+                <p>Handles sensor reads, servo control, joystick logic, and serial command parsing.</p>
+              </div>
+              <div class="stack-item">
+                <h4>Serial Interface</h4>
+                <p>Streams measurements to the PC and receives mode/angle control commands.</p>
+              </div>
+              <div class="stack-item">
+                <h4>Python + Pygame UI</h4>
+                <p>Displays the tactical radar screen, data cards, mode buttons, and manual slider.</p>
+              </div>
+              <div class="stack-item">
+                <h4>State Management</h4>
+                <p>Coordinates manual/auto priority, slider input, joystick handoff, and clean exit behavior.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-title">
+          <h2>Development Process & Results</h2>
+          <p>What was built, improved, and learned</p>
+        </div>
+
+        <div class="timeline-list">
+          <article class="timeline-card">
+            <span class="step">Step 1</span>
+            <h3 style="margin-bottom: 10px;">Initial embedded prototype</h3>
+            <p>
+              The first version focused on making the ultrasonic sensor and servo work together,
+              producing reliable distance data while sweeping the sensor mechanically.
+            </p>
+          </article>
+
+          <article class="timeline-card">
+            <span class="step">Step 2</span>
+            <h3 style="margin-bottom: 10px;">Real-time PC visualization</h3>
+            <p>
+              The project then evolved into a complete interface system by adding a Python-based radar UI,
+              making the measurements visually interpretable and much more portfolio-worthy.
+            </p>
+          </article>
+
+          <article class="timeline-card">
+            <span class="step">Step 3</span>
+            <h3 style="margin-bottom: 10px;">Manual control and UX improvements</h3>
+            <p>
+              Manual operation was extended with joystick input, on-screen buttons, and a slider,
+              turning the project into a more polished and interactive demonstration.
+            </p>
+          </article>
+
+          <article class="timeline-card">
+            <span class="step">Step 4</span>
+            <h3 style="margin-bottom: 10px;">Control conflict debugging</h3>
+            <p>
+              An important issue appeared when Python manual mode kept control even after the UI closed.
+              Fixing this required improving handoff logic between software and joystick control, which is a
+              strong example of debugging state-based embedded behavior.
+            </p>
+          </article>
+
+          <article class="timeline-card">
+            <span class="step">Final Outcome</span>
+            <h3 style="margin-bottom: 10px;">A complete showcase project</h3>
+            <p>
+              The final system demonstrates embedded control, sensor integration, physical interaction,
+              serial communication, real-time graphics, and iterative problem solving — all in one project.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>Add your real screenshots and hardware photos here</p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <img src="../radar-ui.png" alt="Radar user interface screenshot" />
+            <figcaption>
+              Python radar interface showing manual mode, current angle, measured distance,
+              and live target visualization.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-card">
+            <img src="../radar-hardware.jpg" alt="Mini radar hardware setup" />
+            <figcaption>
+              Hardware setup placeholder — replace this with a photo of your Arduino,
+              ultrasonic sensor, servo mount, and joystick assembly.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Why this project belongs in the portfolio</h2>
+          <p>
+            This project shows much more than just code. It demonstrates hands-on embedded development,
+            electronics integration, user interface design, debugging, and end-to-end system thinking.
+            For recruiters in embedded systems, electronics, instrumentation, or R&D, it clearly proves
+            the ability to build and improve a real technical system.
+          </p>
+          <div class="hero-buttons" style="justify-content: center;">
+            <a href="../index.html#projects" class="btn btn-primary">Back to Main Projects</a>
+            <a href="#overview" class="btn btn-secondary">Back to Top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Carlos Nazzarian. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
 
