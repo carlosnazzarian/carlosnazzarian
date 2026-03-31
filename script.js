@@ -59,7 +59,7 @@ const translations = {
     "projects.subtitle": "Projets académiques et techniques pertinents",
     "projects.tech": "Technologies :",
 
-    "projects.pcb.title": "Conception PCB pour potentiostat",
+    "projects.pcb.title": "Conception PCB pour potentiostat (Stage - Laboratoire BASyL)",
     "projects.pcb.desc":
       "Conception et réalisation d’un PCB pour un système de potentiostat afin de réduire le bruit observé sur les prototypes montés sur breadboard.",
     "projects.pcb.b1": "Optimisation du placement et du routage des composantes",
@@ -68,7 +68,7 @@ const translations = {
     "projects.pcb.techList":
     "KiCad, électronique analogique, oscilloscopes, validation expérimentale",
 
-    "projects.lsci.title": "Projet LSCI",
+    "projects.lsci.title": "Projet LSCI (Projet de fin d'études)",
     "projects.lsci.desc":
       "Développement d’un système d’imagerie par contraste de speckle laser combinant une source laser, une caméra et des scripts Python pour l’acquisition et le traitement en temps réel.",
     "projects.lsci.b1": "Intégration d’un montage optique expérimental",
@@ -77,7 +77,7 @@ const translations = {
     "projects.lsci.techList":
     "Python, traitement d’images, acquisition temps réel, instrumentation",
 
-    "projects.dl.title": "Segmentation d’images par deep learning",
+    "projects.dl.title": "Segmentation d’images par deep learning (Projet académique)",
     "projects.dl.desc":
       "Préparation de jeux de données de microscopie, prétraitement, entraînement de modèles, inférence et analyse morphométrique pour la segmentation d’axones.",
     "projects.dl.b1": "Préparation de données et annotations manuelles",
@@ -86,7 +86,7 @@ const translations = {
     "projects.dl.techList":
     "Python, Bash, analyse d’images, apprentissage automatique",
 
-    "projects.micro.title": "Développement d’un système microfluidique",
+    "projects.micro.title": "Développement d’un système microfluidique (Stage - Laboratoire BASyL)",
     "projects.micro.desc":
       "Conception d’une chambre microfluidique compacte imprimée en 3D pour l’intégration d’électrodes sur papier et la réalisation d’essais expérimentaux.",
     "projects.micro.b1": "Intégration des composantes fluidiques et mécaniques",
@@ -102,7 +102,7 @@ const translations = {
     "projects.echem.b2": "Expériences de voltammétrie sur différents analytes",
     "projects.echem.b3": "Documentation des résultats, limites et observations expérimentales",
 
-    "projects.radar.title": "Système Mini Radar",
+    "projects.radar.title": "Système Mini Radar (Projet personnel)",
     "projects.radar.desc":
       "Système radar en temps réel utilisant Arduino, un capteur ultrasonique, un servomoteur et une interface Python pour la visualisation et le contrôle.",
     "projects.radar.b1": "Communication série en temps réel entre Arduino et Python",
@@ -245,7 +245,7 @@ const translations = {
     "projects.subtitle": "Relevant academic and technical projects",
     "projects.tech": "Technologies:",
 
-    "projects.pcb.title": "PCB Design for a Potentiostat",
+    "projects.pcb.title": "PCB Design for a Potentiostat (Internship – BASyL Laboratory)",
     "projects.pcb.desc":
       "Designed and implemented a PCB for a potentiostat system to reduce the noise observed in breadboard-based prototypes.",
     "projects.pcb.b1": "Optimized component placement and routing",
@@ -255,7 +255,7 @@ const translations = {
     "KiCad, analog electronics, oscilloscopes, experimental validation",
 
 
-    "projects.lsci.title": "LSCI Project",
+    "projects.lsci.title": "LSCI Project (Capstone Project)",
     "projects.lsci.desc":
       "Developed a Laser Speckle Contrast Imaging system combining a laser source, a camera, and Python scripts for acquisition and real-time processing.",
     "projects.lsci.b1": "Integrated an experimental optical setup",
@@ -264,7 +264,7 @@ const translations = {
     "projects.lsci.techList":
     "Python, image processing, real-time acquisition, instrumentation",
 
-    "projects.dl.title": "Deep Learning Image Segmentation",
+    "projects.dl.title": "Deep Learning Image Segmentation (Academic Project)",
     "projects.dl.desc":
       "Prepared microscopy datasets, performed preprocessing, trained models, ran inference, and carried out morphometric analysis for axon segmentation.",
     "projects.dl.b1": "Prepared datasets and manual labels",
@@ -273,7 +273,7 @@ const translations = {
     "projects.dl.techList":
     "Python, Bash, image analysis, machine learning",
 
-    "projects.micro.title": "Microfluidic System Development",
+    "projects.micro.title": "Microfluidic System Development (Internship – BASyL Laboratory)",
     "projects.micro.desc":
       "Designed a compact 3D-printed microfluidic chamber for integrating paper-based electrodes and supporting experimental testing.",
     "projects.micro.b1": "Integrated fluidic and mechanical components",
@@ -289,8 +289,7 @@ const translations = {
     "projects.echem.b2": "Performed voltammetry experiments on different analytes",
     "projects.echem.b3": "Documented results, limitations, and experimental observations",
 
-    "projects.radar.title": "Mini Radar System",
-
+    "projects.radar.title": "Mini Radar System (Personal Project)",
     "projects.radar.desc":
     "Real-time radar system using Arduino, an ultrasonic sensor, a servo motor, and a Python interface for visualization and control.",
     "projects.radar.b1":
