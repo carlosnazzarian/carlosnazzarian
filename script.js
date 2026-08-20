@@ -1,439 +1,242 @@
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
+const menuToggle = document.getElementById('menu-toggle');
+const navPanel = document.getElementById('nav-links');
 
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+menuToggle?.addEventListener('click', () => {
+  const open = navPanel.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(open));
 });
 
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
+document.querySelectorAll('#nav-links a').forEach((link) => {
+  link.addEventListener('click', () => {
+    navPanel.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
   });
 });
 
 const translations = {
-  fr: {
-    pageTitle: "Carlos Nazzarian | Portfolio",
-    pageDescription:
-      "Portfolio de Carlos Nazzarian, diplômé en génie biomédical spécialisé en instrumentation, systèmes embarqués, électronique et R&D.",
-
-    "nav.home": "Accueil",
-    "nav.about": "À propos",
-    "nav.expertise": "Expertise",
-    "nav.projects": "Projets",
-    "nav.experience": "Expérience",
-    "nav.skills": "Compétences",
-    "nav.education": "Formation",
-    "nav.highlights": "Réalisations",
-    "nav.contact": "Contact",
-    "nav.cv": "CV",
-
-    "hero.tag": "Portfolio professionnel",
-    "hero.title": 'Bonjour, je suis <span>Carlos Nazzarian</span>',
-    "hero.description":
-      "Diplômé en génie biomédical spécialisé en systèmes embarqués, instrumentation électronique et validation expérimentale. Expérience pratique en conception de PCB, acquisition de signaux, intégration matériel-logiciel et essais en laboratoire. Actuellement à la recherche d’un poste d’entrée en carrière en biomédical, électronique, systèmes embarqués ou R&D.",
-    "hero.projectsBtn": "Voir mes projets",
-    "hero.cvBtn": "Ouvrir mon CV",
-
-    "about.title": "À propos",
-    "about.subtitle": "Résumé professionnel",
-    "about.p1":
-      "Je suis un diplômé récent en génie biomédical de Polytechnique Montréal, avec un intérêt marqué pour les systèmes embarqués, l’électronique, l’instrumentation, la validation et la recherche et développement.",
-    "about.p2":
-      "Mon parcours m’a permis de travailler sur des projets combinant matériel et logiciel, notamment la conception de PCB, l’acquisition de signaux, le prototypage expérimental, l’automatisation en Python et l’analyse de données en laboratoire.",
-    "about.p3":
-      "Je recherche actuellement une opportunité d’entrée en carrière où je pourrai contribuer à des systèmes techniques concrets dans les domaines du biomédical, de l’électronique, des systèmes embarqués ou de la R&D.",
-
-    "expertise.title": "Expertise",
-    "expertise.subtitle": "Ce que je peux apporter à votre équipe",
-    "expertise.item1": "Développement de systèmes embarqués",
-    "expertise.item2": "Instrumentation électronique",
-    "expertise.item3": "Conception et débogage de PCB",
-    "expertise.item4": "Acquisition et traitement de signaux",
-    "expertise.item5": "Validation et essais matériels",
-    "expertise.item6": "Automatisation de tests avec Python",
-    "expertise.item7": "Intégration de systèmes biomédicaux",
-    "expertise.item8": "Conception expérimentale",
-
-    "projects.title": "Projets",
-    "projects.subtitle": "Projets académiques et techniques pertinents",
-    "projects.tech": "Technologies :",
-
-    "projects.pcb.title": "Conception PCB pour potentiostat (Stage - Laboratoire BASyL)",
-    "projects.pcb.desc":
-      "Conception et réalisation d’un PCB pour un système de potentiostat afin de réduire le bruit observé sur les prototypes montés sur breadboard.",
-    "projects.pcb.b1": "Optimisation du placement et du routage des composantes",
-    "projects.pcb.b2": "Validation par mesures comparatives à l’oscilloscope",
-    "projects.pcb.b3": "Amélioration de la stabilité et de la fiabilité du signal",
-    "projects.pcb.techList":
-    "KiCad, électronique analogique, oscilloscopes, validation expérimentale",
-
-    "projects.lsci.title": "Projet LSCI (Projet de fin d'études)",
-    "projects.lsci.desc":
-      "Développement d’un système d’imagerie par contraste de speckle laser combinant une source laser, une caméra et des scripts Python pour l’acquisition et le traitement en temps réel.",
-    "projects.lsci.b1": "Intégration d’un montage optique expérimental",
-    "projects.lsci.b2": "Optimisation de l’illumination, de l’exposition et de l’acquisition",
-    "projects.lsci.b3": "Production de documentation technique et de procédures de test",
-    "projects.lsci.techList":
-    "Python, traitement d’images, acquisition temps réel, instrumentation",
-
-    "projects.dl.title": "Segmentation d’images par deep learning (Projet académique)",
-    "projects.dl.desc":
-      "Préparation de jeux de données de microscopie, prétraitement, entraînement de modèles, inférence et analyse morphométrique pour la segmentation d’axones.",
-    "projects.dl.b1": "Préparation de données et annotations manuelles",
-    "projects.dl.b2": "Automatisation des flux de travail avec Python et Bash",
-    "projects.dl.b3": "Évaluation quantitative des performances du modèle",
-    "projects.dl.techList":
-    "Python, Bash, analyse d’images, apprentissage automatique",
-
-    "projects.micro.title": "Développement d’un système microfluidique (Stage - Laboratoire BASyL)",
-    "projects.micro.desc":
-      "Conception d’une chambre microfluidique compacte imprimée en 3D pour l’intégration d’électrodes sur papier et la réalisation d’essais expérimentaux.",
-    "projects.micro.b1": "Intégration des composantes fluidiques et mécaniques",
-    "projects.micro.b2": "Vérification de l’écoulement et de l’étanchéité",
-    "projects.micro.b3": "Support aux essais électrochimiques et à l’analyse des réponses",
-    "projects.micro.techList":
-    "Impression 3D, microfluidique, expérimentation, intégration de systèmes",
-
-    "projects.echem.title": "Instrument de mesure électrochimique",
-    "projects.echem.desc":
-      "Réalisation d’un circuit de mesure analogique utilisant des amplificateurs opérationnels, des composants passifs et des signaux générés par Arduino.",
-    "projects.echem.b1": "Validation des formes d’onde et du comportement du circuit",
-    "projects.echem.b2": "Expériences de voltammétrie sur différents analytes",
-    "projects.echem.b3": "Documentation des résultats, limites et observations expérimentales",
-
-    "projects.radar.title": "Système Mini Radar (Projet personnel)",
-    "projects.radar.desc":
-      "Système radar en temps réel utilisant Arduino, un capteur ultrasonique, un servomoteur et une interface Python pour la visualisation et le contrôle.",
-    "projects.radar.b1": "Communication série en temps réel entre Arduino et Python",
-    "projects.radar.b2": "Modes de balayage automatique et manuel",
-    "projects.radar.b3": "Interface radar interactive développée avec Pygame",
-    "projects.radar.b4": "Système de contrôle via joystick et interface logicielle",
-    "projects.radar.techList":
-    "Arduino, Python, Pygame, systèmes embarqués, communication série",
-
-
-    "experience.title": "Expérience",
-    "experience.subtitle": "Expérience professionnelle et de recherche",
-    "experience.basyL.date": "Été 2024",
-    "experience.basyL.title":
-      "Stagiaire de recherche — Laboratoire BASyL, Polytechnique Montréal",
-    "experience.basyL.desc":
-      "Contribution à des projets d’instrumentation et d’expérimentation biomédicale incluant la conception de PCB, des systèmes microfluidiques et la validation de montages expérimentaux.",
-    "experience.basyL.b1":
-      "Validation matérielle avec oscilloscopes et outils de mesure",
-    "experience.basyL.b2":
-      "Exécution de procédures expérimentales et analyse de résultats",
-    "experience.basyL.b3":
-      "Rédaction de documentation technique et d’ingénierie",
-    "experience.ct.date": "2022 – présent",
-    "experience.ct.title": "Préposé au service à la clientèle — Couche-Tard",
-    "experience.ct.desc":
-      "Expérience dans un environnement rapide nécessitant autonomie, communication, rigueur et résolution de problèmes au quotidien.",
-
-    "skills.title": "Compétences",
-    "skills.subtitle": "Compétences techniques principales",
-    "skills.group1.title": "Systèmes embarqués et électronique",
-    "skills.group1.text":
-      "Arduino, C/C++, acquisition de signaux, capteurs, intégration matériel-logiciel, conception de PCB",
-    "skills.group2.title": "Instrumentation et validation",
-    "skills.group2.text":
-      "Oscilloscopes, multimètres, DAQ, dépannage matériel, calibration, vérification de performance",
-    "skills.group3.title": "Programmation et automatisation",
-    "skills.group3.text":
-      "Python, MATLAB, Bash, automatisation de tests, pipelines d’acquisition et de traitement",
-    "skills.group4.title": "Analyse de données",
-    "skills.group4.text":
-      "NumPy, SciPy, Matplotlib, traitement d’images, analyse expérimentale",
-    "skills.group5.title": "CAD et prototypage",
-    "skills.group5.text":
-      "KiCad, CATIA V5, FreeCAD, impression 3D, fabrication et intégration de prototypes",
-
-    "education.title": "Formation",
-    "education.subtitle": "Parcours académique et certificats",
-    "education.degreeLabel": "Diplôme :",
-    "education.degreeValue":
-      "Baccalauréat en génie biomédical — Polytechnique Montréal",
-    "education.dateLabel": "Période :",
-    "education.dateValue": "2021 – 2025",
-    "education.gpaLabel": "Moyenne cumulative :",
-    "education.gpaValue": "3,13 / 4,00",
-    "education.courseworkTitle": "Cours techniques clés",
-    "education.c1": "Circuits électriques",
-    "education.c2": "Instrumentation et mesures biomédicales",
-    "education.c3": "Champs électromagnétiques",
-    "education.c4": "Traitement numérique d’images médicales",
-    "education.c5": "Principes d’imagerie biomédicale",
-    "education.c6": "Modélisation et commande en physiologie",
-    "education.c7": "Réseaux informatiques",
-    "education.certTitle": "Certificats",
-    "education.cert1":
-      "Python Specialization — Coursera (University of Michigan)",
-    "education.cert2":
-      "Advanced Embedded Systems with Arduino — Coursera (Packt)",
-
-    "highlights.title": "Réalisations",
-    "highlights.subtitle": "Quelques points forts de mon parcours",
-    "highlights.h1":
-      "Conçu et validé des systèmes matériels en environnement de laboratoire",
-    "highlights.h2":
-      "Amélioré la qualité du signal dans un système de mesure sur PCB",
-    "highlights.h3":
-      "Développé des pipelines Python pour l’acquisition et le traitement d’images en temps réel",
-    "highlights.h4":
-      "Automatisé des flux de traitement et d’analyse de données expérimentales",
-    "highlights.h5":
-      "Contribué à des projets interdisciplinaires combinant électronique, logiciel et expérimentation biomédicale",
-
-    "contact.title": "Contact",
-    "contact.subtitle": "Vous pouvez me joindre ici",
-    "contact.nameLabel": "Nom :",
-    "contact.locationLabel": "Localisation :",
-    "contact.phoneLabel": "Téléphone :",
-    "contact.emailLabel": "Email :",
-    "contact.linkedinLabel": "LinkedIn :",
-    "contact.cvLabel": "CV :",
-    "contact.cvOpen": "Ouvrir le CV",
-
-    "footer.text": "© 2026 Carlos Nazzarian. Tous droits réservés."
-  },
-
   en: {
-    pageTitle: "Carlos Nazzarian | Portfolio",
-    pageDescription:
-      "Portfolio of Carlos Nazzarian, Biomedical Engineering graduate focused on instrumentation, embedded systems, electronics, and R&D.",
-
-    "nav.home": "Home",
-    "nav.about": "About",
-    "nav.expertise": "Expertise",
-    "nav.projects": "Projects",
-    "nav.experience": "Experience",
-    "nav.skills": "Skills",
-    "nav.education": "Education",
-    "nav.highlights": "Highlights",
-    "nav.contact": "Contact",
-    "nav.cv": "Resume",
-
-    "hero.tag": "Professional Portfolio",
-    "hero.title": 'Hello, I’m <span>Carlos Nazzarian</span>',
-    "hero.description":
-      "Biomedical Engineering graduate specialized in embedded systems, electronic instrumentation, and experimental validation. Hands-on experience in PCB design, signal acquisition, hardware-software integration, and laboratory testing. Currently seeking an entry-level role in biomedical engineering, electronics, embedded systems, or R&D.",
-    "hero.projectsBtn": "View My Projects",
-    "hero.cvBtn": "Open Resume",
-
-    "about.title": "About",
-    "about.subtitle": "Professional Summary",
-    "about.p1":
-      "I am a recent Biomedical Engineering graduate from Polytechnique Montréal with a strong interest in embedded systems, electronics, instrumentation, validation, and research and development.",
-    "about.p2":
-      "My background allowed me to work on projects combining hardware and software, including PCB design, signal acquisition, experimental prototyping, Python automation, and laboratory data analysis.",
-    "about.p3":
-      "I am currently looking for an entry-level opportunity where I can contribute to practical technical systems in biomedical engineering, electronics, embedded systems, or R&D.",
-
-    "expertise.title": "Expertise",
-    "expertise.subtitle": "What I can bring to your team",
-    "expertise.item1": "Embedded systems development",
-    "expertise.item2": "Electronic instrumentation",
-    "expertise.item3": "PCB design and debugging",
-    "expertise.item4": "Signal acquisition and processing",
-    "expertise.item5": "Hardware validation and testing",
-    "expertise.item6": "Python test automation",
-    "expertise.item7": "Biomedical systems integration",
-    "expertise.item8": "Experimental design",
-
-    "projects.title": "Projects",
-    "projects.subtitle": "Relevant academic and technical projects",
-    "projects.tech": "Technologies:",
-
-    "projects.pcb.title": "PCB Design for a Potentiostat (Internship – BASyL Laboratory)",
-    "projects.pcb.desc":
-      "Designed and implemented a PCB for a potentiostat system to reduce the noise observed in breadboard-based prototypes.",
-    "projects.pcb.b1": "Optimized component placement and routing",
-    "projects.pcb.b2": "Validated performance through comparative oscilloscope measurements",
-    "projects.pcb.b3": "Improved signal stability and measurement reliability",
-    "projects.pcb.techList":
-    "KiCad, analog electronics, oscilloscopes, experimental validation",
-
-
-    "projects.lsci.title": "LSCI Project (Capstone Project)",
-    "projects.lsci.desc":
-      "Developed a Laser Speckle Contrast Imaging system combining a laser source, a camera, and Python scripts for acquisition and real-time processing.",
-    "projects.lsci.b1": "Integrated an experimental optical setup",
-    "projects.lsci.b2": "Optimized illumination, exposure, and acquisition settings",
-    "projects.lsci.b3": "Produced technical documentation and test procedures",
-    "projects.lsci.techList":
-    "Python, image processing, real-time acquisition, instrumentation",
-
-    "projects.dl.title": "Deep Learning Image Segmentation (Academic Project)",
-    "projects.dl.desc":
-      "Prepared microscopy datasets, performed preprocessing, trained models, ran inference, and carried out morphometric analysis for axon segmentation.",
-    "projects.dl.b1": "Prepared datasets and manual labels",
-    "projects.dl.b2": "Automated workflows using Python and Bash",
-    "projects.dl.b3": "Evaluated model performance with quantitative metrics",
-    "projects.dl.techList":
-    "Python, Bash, image analysis, machine learning",
-
-    "projects.micro.title": "Microfluidic System Development (Internship – BASyL Laboratory)",
-    "projects.micro.desc":
-      "Designed a compact 3D-printed microfluidic chamber for integrating paper-based electrodes and supporting experimental testing.",
-    "projects.micro.b1": "Integrated fluidic and mechanical components",
-    "projects.micro.b2": "Verified fluid flow and sealing performance",
-    "projects.micro.b3": "Supported electrochemical testing and response analysis",
-    "projects.micro.techList":
-    "3D printing, microfluidics, experimentation, systems integration",
-
-    "projects.echem.title": "Electrochemical Measurement Instrument",
-    "projects.echem.desc":
-      "Built an analog measurement circuit using operational amplifiers, passive components, and Arduino-generated signals.",
-    "projects.echem.b1": "Validated waveforms and circuit behavior",
-    "projects.echem.b2": "Performed voltammetry experiments on different analytes",
-    "projects.echem.b3": "Documented results, limitations, and experimental observations",
-
-    "projects.radar.title": "Mini Radar System (Personal Project)",
-    "projects.radar.desc":
-    "Real-time radar system using Arduino, an ultrasonic sensor, a servo motor, and a Python interface for visualization and control.",
-    "projects.radar.b1":
-    "Real-time serial communication between Arduino and Python",
-    "projects.radar.b2":
-    "Automatic and manual scanning modes",
-    "projects.radar.b3":
-    "Interactive radar interface developed using Pygame",
-    "projects.radar.b4":
-    "Control system using both joystick and software interface",
-    "projects.radar.techList":
-    "Arduino, Python, Pygame, embedded systems, serial communication",
-
-    "experience.title": "Experience",
-    "experience.subtitle": "Research and professional experience",
-    "experience.basyL.date": "Summer 2024",
-    "experience.basyL.title":
-      "Research Intern — BASyL Laboratory, Polytechnique Montréal",
-    "experience.basyL.desc":
-      "Contributed to biomedical instrumentation and experimental projects involving PCB design, microfluidic systems, and validation of experimental setups.",
-    "experience.basyL.b1":
-      "Performed hardware validation using oscilloscopes and measurement tools",
-    "experience.basyL.b2":
-      "Executed experimental procedures and analyzed results",
-    "experience.basyL.b3":
-      "Prepared technical and engineering documentation",
-    "experience.ct.date": "2022 – Present",
-    "experience.ct.title": "Customer Service Attendant — Couche-Tard",
-    "experience.ct.desc":
-      "Experience in a fast-paced environment requiring autonomy, communication, attention to detail, and day-to-day problem solving.",
-
-    "skills.title": "Skills",
-    "skills.subtitle": "Core technical skills",
-    "skills.group1.title": "Embedded Systems & Electronics",
-    "skills.group1.text":
-      "Arduino, C/C++, signal acquisition, sensors, hardware-software integration, PCB design",
-    "skills.group2.title": "Instrumentation & Validation",
-    "skills.group2.text":
-      "Oscilloscopes, multimeters, DAQ, hardware troubleshooting, calibration, performance verification",
-    "skills.group3.title": "Programming & Automation",
-    "skills.group3.text":
-      "Python, MATLAB, Bash, test automation, acquisition and processing pipelines",
-    "skills.group4.title": "Data Analysis",
-    "skills.group4.text":
-      "NumPy, SciPy, Matplotlib, image processing, experimental analysis",
-    "skills.group5.title": "CAD & Prototyping",
-    "skills.group5.text":
-      "KiCad, CATIA V5, FreeCAD, 3D printing, prototype fabrication and integration",
-
-    "education.title": "Education",
-    "education.subtitle": "Academic background and certificates",
-    "education.degreeLabel": "Degree:",
-    "education.degreeValue":
-      "B.Eng. in Biomedical Engineering — Polytechnique Montréal",
-    "education.dateLabel": "Period:",
-    "education.dateValue": "2021 – 2025",
-    "education.gpaLabel": "Cumulative GPA:",
-    "education.gpaValue": "3.13 / 4.00",
-    "education.courseworkTitle": "Key Technical Coursework",
-    "education.c1": "Electrical Circuits",
-    "education.c2": "Biomedical Instrumentation and Measurements",
-    "education.c3": "Electromagnetic Fields",
-    "education.c4": "Digital Medical Image Processing",
-    "education.c5": "Principles of Biomedical Imaging",
-    "education.c6": "Modeling and Control in Physiology",
-    "education.c7": "Computer Networks",
-    "education.certTitle": "Certificates",
-    "education.cert1":
-      "Python Specialization — Coursera (University of Michigan)",
-    "education.cert2":
-      "Advanced Embedded Systems with Arduino — Coursera (Packt)",
-
-    "highlights.title": "Highlights",
-    "highlights.subtitle": "A few key strengths from my background",
-    "highlights.h1":
-      "Designed and validated hardware systems in laboratory environments",
-    "highlights.h2":
-      "Improved signal quality in a PCB-based measurement system",
-    "highlights.h3":
-      "Built Python pipelines for real-time image acquisition and processing",
-    "highlights.h4":
-      "Automated experimental data processing and analysis workflows",
-    "highlights.h5":
-      "Contributed to interdisciplinary projects combining electronics, software, and biomedical experimentation",
-
-    "contact.title": "Contact",
-    "contact.subtitle": "You can reach me here",
-    "contact.nameLabel": "Name:",
-    "contact.locationLabel": "Location:",
-    "contact.phoneLabel": "Phone:",
-    "contact.emailLabel": "Email:",
-    "contact.linkedinLabel": "LinkedIn:",
-    "contact.cvLabel": "Resume:",
-    "contact.cvOpen": "Open Resume",
-
-    "footer.text": "© 2026 Carlos Nazzarian. All rights reserved."
+    'nav.about': 'About',
+    'nav.experience': 'Experience',
+    'nav.projects': 'Projects',
+    'nav.skills': 'Skills',
+    'nav.education': 'Education',
+    'nav.contact': 'Contact',
+    'hero.eyebrow': 'Biomedical Engineering × Software Engineering',
+    'hero.intro': "Hi, I'm",
+    'hero.title': 'I build at the intersection of embedded systems, electronics, software, and medical devices.',
+    'hero.description': 'Biomedical Engineering graduate from Polytechnique Montréal, Software Engineering student at ÉTS, and R&D intern developing embedded control electronics for a medical cold-air skin cooling system.',
+    'hero.experienceBtn': 'View current R&D work',
+    'hero.resumeBtn': 'Resume',
+    'hero.currentRoleLabel': 'Current role',
+    'hero.currentRole': 'Biomedical Engineering / R&D Intern',
+    'hero.focus1Label': 'Current focus',
+    'hero.focus1': 'Embedded control',
+    'hero.focus2Label': 'Domain',
+    'hero.focus2': 'Medical devices',
+    'hero.focus3Label': 'Tools',
+    'hero.focus4Label': 'Location',
+    'about.kicker': '01 — About',
+    'about.title': 'Engineering across hardware and software.',
+    'about.p1': 'My background combines biomedical engineering, electronics, instrumentation, and software development. I enjoy projects where code interacts with real hardware: sensors, actuators, control logic, data acquisition, and physical prototypes.',
+    'about.p2': 'I am currently expanding that foundation through Software Engineering studies at ÉTS while applying it in medical-device R&D at Laser Medical Canada.',
+    'experience.kicker': '02 — Experience',
+    'experience.title': 'Current engineering work',
+    'experience.subtitle': 'Hands-on R&D, prototyping, testing, and system integration.',
+    'experience.lmc.title': 'Biomedical Engineering / R&D Intern',
+    'experience.lmc.date': 'June 2026 — Present',
+    'experience.lmc.lead': 'Developing a cold-air skin cooling system intended to support medical laser treatments, with work spanning thermal-system analysis, embedded control, electronics, and prototype validation.',
+    'experience.lmc.b1': 'Studied refrigeration-system architecture, thermodynamic principles, and technical documentation to identify operating and control requirements.',
+    'experience.lmc.b2': 'Evaluated a 24 VDC refrigeration unit and used the results to guide a transition toward a higher-capacity compressor-based architecture.',
+    'experience.lmc.b3': 'Developed Arduino C/C++ control logic for temperature monitoring, fan and compressor control, pressure-switch supervision, treatment states, and safety alarms.',
+    'experience.lmc.b4': 'Designed preliminary electronic schematics and PCB routing in KiCad and validated the control logic on breadboard prototypes.',
+    'experience.lmc.b5': 'Integrated PWM, relays, MOSFET-based control, RTC/EEPROM error logging, user-interface communication, and hands-on SMD soldering/troubleshooting.',
+    'experience.lmc.diagramNote': 'High-level architecture only — no proprietary design details shown.',
+    'experience.basyl.date': 'Summer 2024',
+    'experience.basyl.title': 'Research Intern — BASyL Laboratory, Polytechnique Montréal',
+    'experience.basyl.desc': 'Worked on biomedical instrumentation and experimental systems involving PCB design, microfluidics, signal quality, and laboratory validation.',
+    'experience.basyl.b1': 'Designed and optimized a PCB to improve signal quality and reduce electrical noise.',
+    'experience.basyl.b2': 'Validated system performance through experimental data acquisition and measurement tools.',
+    'experience.basyl.b3': 'Integrated electronic, mechanical, and microfluidic components and documented test results.',
+    'experience.ct.date': 'May 2022 — May 2026',
+    'experience.ct.title': 'Customer Service Associate — Couche-Tard',
+    'experience.ct.desc': 'Worked in a fast-paced environment requiring autonomy, prioritization, communication, and problem-solving; also supported the onboarding of new employees.',
+    'projects.kicker': '03 — Selected Projects',
+    'projects.title': 'Projects that connect software to the physical world.',
+    'projects.pcb.title': 'Low-noise Potentiostat PCB',
+    'projects.pcb.desc': 'Designed and optimized a PCB for an electrochemical measurement system to reduce noise compared with breadboard prototypes and improve measurement stability.',
+    'projects.lsci.title': 'Laser Speckle Contrast Imaging System',
+    'projects.lsci.desc': 'Built an optical acquisition workflow combining a laser source, camera, and Python-based real-time acquisition and processing.',
+    'projects.dl.title': 'Medical Image Segmentation',
+    'projects.dl.desc': 'Prepared microscopy datasets, trained segmentation models, automated processing with Python/Bash, and evaluated model performance.',
+    'projects.radar.title': 'Mini Radar System',
+    'projects.radar.desc': 'Real-time Arduino radar prototype using an ultrasonic sensor, servo, serial communication, and a Python/Pygame visualization interface.',
+    'projects.details': 'View details →',
+    'skills.kicker': '04 — Technical Toolkit',
+    'skills.title': 'A practical hardware + software skill set.',
+    'skills.embedded.title': 'Embedded & Control',
+    'skills.embedded.text': 'C/C++, Arduino, state machines, PWM, GPIO, sensor acquisition, actuator control, safety logic.',
+    'skills.electronics.title': 'Electronics & Prototyping',
+    'skills.electronics.text': 'KiCad, schematic capture, preliminary PCB layout, breadboards, relays, MOSFETs, SMD soldering, oscilloscope, multimeter.',
+    'skills.software.title': 'Software & Data',
+    'skills.software.text': 'Python, NumPy, SciPy, Matplotlib, Bash, Git, data processing, test automation, real-time acquisition.',
+    'skills.biomed.title': 'Biomedical & Validation',
+    'skills.biomed.text': 'Biomedical instrumentation, medical-device R&D, experimental validation, signal/data analysis, technical documentation.',
+    'education.kicker': '05 — Education',
+    'education.title': 'Two complementary engineering paths.',
+    'common.present': 'Present',
+    'education.ets.degree': 'Bachelor of Engineering — Software Engineering',
+    'education.ets.text': 'Current studies include software development, data structures and algorithms, software architecture, and computer networks.',
+    'education.poly.degree': 'Bachelor of Engineering — Biomedical Engineering',
+    'education.poly.text': 'Coursework and projects in biomedical instrumentation, medical imaging, numerical methods, electronics, data analysis, and medical-device regulation.',
+    'certs.kicker': 'Certifications',
+    'certs.title': 'Selected continuing education',
+    'contact.kicker': '06 — Contact',
+    'contact.title': "Let's connect.",
+    'contact.text': 'Interested in embedded systems, firmware, biomedical R&D, software, and hardware/software integration.',
+    'contact.resumeLabel': 'Resume',
+    'contact.resumeText': 'Open PDF ↗',
+    'footer.back': 'Back to top ↑'
+  },
+  fr: {
+    'nav.about': 'À propos',
+    'nav.experience': 'Expérience',
+    'nav.projects': 'Projets',
+    'nav.skills': 'Compétences',
+    'nav.education': 'Formation',
+    'nav.contact': 'Contact',
+    'hero.eyebrow': 'Génie biomédical × Génie logiciel',
+    'hero.intro': 'Bonjour, je suis',
+    'hero.title': 'Je développe à l’intersection des systèmes embarqués, de l’électronique, du logiciel et des dispositifs médicaux.',
+    'hero.description': 'Diplômé en génie biomédical de Polytechnique Montréal, étudiant en génie logiciel à l’ÉTS et stagiaire en R&D sur le développement du contrôle embarqué d’un système médical de refroidissement cutané par air froid.',
+    'hero.experienceBtn': 'Voir mon travail R&D actuel',
+    'hero.resumeBtn': 'CV',
+    'hero.currentRoleLabel': 'Rôle actuel',
+    'hero.currentRole': 'Stagiaire en génie biomédical / R&D',
+    'hero.focus1Label': 'Focus actuel',
+    'hero.focus1': 'Contrôle embarqué',
+    'hero.focus2Label': 'Domaine',
+    'hero.focus2': 'Dispositifs médicaux',
+    'hero.focus3Label': 'Outils',
+    'hero.focus4Label': 'Localisation',
+    'about.kicker': '01 — À propos',
+    'about.title': 'De l’ingénierie entre matériel et logiciel.',
+    'about.p1': 'Mon parcours combine génie biomédical, électronique, instrumentation et développement logiciel. J’aime particulièrement les projets où le code interagit avec du matériel réel : capteurs, actionneurs, logique de contrôle, acquisition de données et prototypes physiques.',
+    'about.p2': 'Je développe actuellement cette base par mes études en génie logiciel à l’ÉTS tout en l’appliquant en R&D de dispositifs médicaux chez Laser Medical Canada.',
+    'experience.kicker': '02 — Expérience',
+    'experience.title': 'Travail d’ingénierie actuel',
+    'experience.subtitle': 'R&D pratique, prototypage, essais et intégration de systèmes.',
+    'experience.lmc.title': 'Stagiaire en génie biomédical / R&D',
+    'experience.lmc.date': 'Juin 2026 — Présent',
+    'experience.lmc.lead': 'Développement d’un système de refroidissement cutané par air froid destiné à accompagner des traitements laser médicaux, avec un travail couvrant l’analyse thermique, le contrôle embarqué, l’électronique et la validation de prototypes.',
+    'experience.lmc.b1': 'Analyse de l’architecture du circuit frigorifique, des principes thermodynamiques et de la documentation technique afin d’identifier les besoins de fonctionnement et de contrôle.',
+    'experience.lmc.b2': 'Évaluation d’une unité frigorifique 24 VDC et utilisation des résultats pour orienter la transition vers une architecture à compresseur de plus grande capacité.',
+    'experience.lmc.b3': 'Développement de la logique de contrôle Arduino en C/C++ pour la surveillance de température, le contrôle du ventilateur et du compresseur, le pressostat, les états de traitement et les alarmes de sécurité.',
+    'experience.lmc.b4': 'Conception préliminaire des schémas électroniques et du routage PCB dans KiCad, avec validation de la logique de contrôle sur breadboard.',
+    'experience.lmc.b5': 'Intégration du PWM, de relais, de commandes MOSFET, d’un journal d’erreurs RTC/EEPROM, de la communication avec l’interface utilisateur ainsi que soudure SMD et dépannage.',
+    'experience.lmc.diagramNote': 'Architecture de haut niveau seulement — aucun détail de conception propriétaire.',
+    'experience.basyl.date': 'Été 2024',
+    'experience.basyl.title': 'Stagiaire de recherche — Laboratoire BASyL, Polytechnique Montréal',
+    'experience.basyl.desc': 'Travail sur des systèmes d’instrumentation et d’expérimentation biomédicale impliquant PCB, microfluidique, qualité du signal et validation en laboratoire.',
+    'experience.basyl.b1': 'Conception et optimisation d’un PCB afin d’améliorer la qualité du signal et de réduire le bruit électrique.',
+    'experience.basyl.b2': 'Validation des performances par acquisition de données expérimentales et utilisation d’instruments de mesure.',
+    'experience.basyl.b3': 'Intégration de composantes électroniques, mécaniques et microfluidiques et documentation des essais.',
+    'experience.ct.date': 'Mai 2022 — Mai 2026',
+    'experience.ct.title': 'Préposé au service à la clientèle — Couche-Tard',
+    'experience.ct.desc': 'Travail dans un environnement rapide nécessitant autonomie, gestion des priorités, communication et résolution de problèmes; soutien à la formation de nouveaux employés.',
+    'projects.kicker': '03 — Projets sélectionnés',
+    'projects.title': 'Des projets qui relient le logiciel au monde physique.',
+    'projects.pcb.title': 'PCB de potentiostat à faible bruit',
+    'projects.pcb.desc': 'Conception et optimisation d’un PCB pour un système de mesure électrochimique afin de réduire le bruit par rapport aux prototypes sur breadboard et d’améliorer la stabilité des mesures.',
+    'projects.lsci.title': 'Système d’imagerie LSCI',
+    'projects.lsci.desc': 'Développement d’un flux d’acquisition optique combinant une source laser, une caméra et du traitement/acquisition temps réel en Python.',
+    'projects.dl.title': 'Segmentation d’images médicales',
+    'projects.dl.desc': 'Préparation de jeux de données de microscopie, entraînement de modèles de segmentation, automatisation Python/Bash et évaluation des performances.',
+    'projects.radar.title': 'Système Mini Radar',
+    'projects.radar.desc': 'Prototype radar Arduino en temps réel utilisant un capteur ultrasonique, un servomoteur, la communication série et une interface Python/Pygame.',
+    'projects.details': 'Voir les détails →',
+    'skills.kicker': '04 — Compétences techniques',
+    'skills.title': 'Un ensemble pratique de compétences matériel + logiciel.',
+    'skills.embedded.title': 'Systèmes embarqués & contrôle',
+    'skills.embedded.text': 'C/C++, Arduino, machines à états, PWM, GPIO, acquisition de capteurs, commande d’actionneurs, logique de sécurité.',
+    'skills.electronics.title': 'Électronique & prototypage',
+    'skills.electronics.text': 'KiCad, schémas électroniques, routage PCB préliminaire, breadboards, relais, MOSFET, soudure SMD, oscilloscope, multimètre.',
+    'skills.software.title': 'Logiciel & données',
+    'skills.software.text': 'Python, NumPy, SciPy, Matplotlib, Bash, Git, traitement de données, automatisation de tests, acquisition temps réel.',
+    'skills.biomed.title': 'Biomédical & validation',
+    'skills.biomed.text': 'Instrumentation biomédicale, R&D de dispositifs médicaux, validation expérimentale, analyse de signaux/données, documentation technique.',
+    'education.kicker': '05 — Formation',
+    'education.title': 'Deux parcours d’ingénierie complémentaires.',
+    'common.present': 'Présent',
+    'education.ets.degree': 'Baccalauréat en génie — Génie logiciel',
+    'education.ets.text': 'Études actuelles en développement logiciel, structures de données et algorithmes, architecture logicielle et réseaux informatiques.',
+    'education.poly.degree': 'Baccalauréat en génie — Génie biomédical',
+    'education.poly.text': 'Cours et projets en instrumentation biomédicale, imagerie médicale, méthodes numériques, électronique, analyse de données et réglementation des dispositifs médicaux.',
+    'certs.kicker': 'Certifications',
+    'certs.title': 'Formation continue sélectionnée',
+    'contact.kicker': '06 — Contact',
+    'contact.title': 'Restons en contact.',
+    'contact.text': 'Intérêt pour les systèmes embarqués, le firmware, la R&D biomédicale, le logiciel et l’intégration matériel-logiciel.',
+    'contact.resumeLabel': 'CV',
+    'contact.resumeText': 'Ouvrir le PDF ↗',
+    'footer.back': 'Retour en haut ↑'
   }
 };
 
-const langButtons = {
-  fr: document.getElementById("lang-fr"),
-  en: document.getElementById("lang-en"),
-};
+function applyLanguage(lang) {
+  const selected = translations[lang] ? lang : 'en';
+  document.documentElement.lang = selected;
 
-const cvLinks = [
-  document.getElementById("cv-link-nav"),
-  document.getElementById("cv-link-hero"),
-  document.getElementById("cv-link-contact"),
-];
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.dataset.i18n;
+    if (translations[selected][key]) {
+      el.textContent = translations[selected][key];
+    }
+  });
 
-function setLanguage(lang) {
-  const dict = translations[lang];
-  if (!dict) return;
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.lang === selected);
+  });
 
-  document.documentElement.lang = lang;
-  document.title = dict.pageTitle;
+  document.querySelectorAll('.resume-link').forEach((link) => {
+    link.href = selected === 'fr' ? 'cv-fr.pdf' : 'cv-en.pdf';
+  });
 
-  const metaDescription = document.querySelector('meta[name="description"]');
-  if (metaDescription) {
-    metaDescription.setAttribute("content", dict.pageDescription);
+  document.title = selected === 'fr'
+    ? 'Carlos Nazzarian | Portfolio d’ingénierie'
+    : 'Carlos Nazzarian | Engineering Portfolio';
+
+  const description = document.querySelector('meta[name="description"]');
+  if (description) {
+    description.content = selected === 'fr'
+      ? 'Carlos Nazzarian — diplômé en génie biomédical et étudiant en génie logiciel, avec un intérêt pour les systèmes embarqués, l’électronique, le contrôle et la R&D de dispositifs médicaux.'
+      : 'Carlos Nazzarian — Biomedical Engineering graduate and Software Engineering student focused on embedded systems, electronics, control, software, and medical device R&D.';
   }
 
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.getAttribute("data-i18n");
-    if (dict[key]) {
-      element.innerHTML = dict[key];
-    }
-  });
-
-  const cvPath = lang === "fr" ? "cv-fr.pdf" : "cv-en.pdf";
-  cvLinks.forEach((link) => {
-    if (link) {
-      link.setAttribute("href", cvPath);
-    }
-  });
-
-  langButtons.fr.classList.toggle("active", lang === "fr");
-  langButtons.en.classList.toggle("active", lang === "en");
-
-  localStorage.setItem("preferredLanguage", lang);
+  try {
+    localStorage.setItem('portfolioLanguage', selected);
+  } catch (_) {}
 }
 
-langButtons.fr.addEventListener("click", () => setLanguage("fr"));
-langButtons.en.addEventListener("click", () => setLanguage("en"));
+document.querySelectorAll('.lang-btn').forEach((btn) => {
+  btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+});
 
-const savedLanguage = localStorage.getItem("preferredLanguage");
-setLanguage(savedLanguage === "en" ? "en" : "fr");
+let initialLanguage = 'en';
+try {
+  initialLanguage = localStorage.getItem('portfolioLanguage') || 'en';
+} catch (_) {}
+applyLanguage(initialLanguage);
+
+const revealObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
