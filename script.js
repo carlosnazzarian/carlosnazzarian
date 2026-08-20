@@ -21,10 +21,10 @@ const translations = {
     'nav.skills': 'Skills',
     'nav.education': 'Education',
     'nav.contact': 'Contact',
-    'hero.eyebrow': 'Biomedical Engineering × Software Engineering',
+    'hero.eyebrow': 'Biomedical Engineering',
     'hero.intro': "Hi, I'm",
     'hero.title': 'I build at the intersection of embedded systems, electronics, software, and medical devices.',
-    'hero.description': 'Biomedical Engineering graduate from Polytechnique Montréal, Software Engineering student at ÉTS, and R&D intern developing embedded control electronics for a medical cold-air skin cooling system.',
+    'hero.description': 'Biomedical Engineering graduate from Polytechnique Montréal and R&D intern developing embedded control electronics for a medical cold-air skin cooling system.',
     'hero.experienceBtn': 'View current R&D work',
     'hero.resumeBtn': 'Resume',
     'hero.currentRoleLabel': 'Current role',
@@ -38,7 +38,7 @@ const translations = {
     'about.kicker': '01 — About',
     'about.title': 'Engineering across hardware and software.',
     'about.p1': 'My background combines biomedical engineering, electronics, instrumentation, and software development. I enjoy projects where code interacts with real hardware: sensors, actuators, control logic, data acquisition, and physical prototypes.',
-    'about.p2': 'I am currently expanding that foundation through Software Engineering studies at ÉTS while applying it in medical-device R&D at Laser Medical Canada.',
+    'about.p2': 'I currently apply this multidisciplinary background in medical-device R&D at Laser Medical Canada.',
     'experience.kicker': '02 — Experience',
     'experience.title': 'Current engineering work',
     'experience.subtitle': 'Hands-on R&D, prototyping, testing, and system integration.',
@@ -82,10 +82,8 @@ const translations = {
     'skills.biomed.title': 'Biomedical & Validation',
     'skills.biomed.text': 'Biomedical instrumentation, medical-device R&D, experimental validation, signal/data analysis, technical documentation.',
     'education.kicker': '05 — Education',
-    'education.title': 'Two complementary engineering paths.',
+    'education.title': 'Biomedical engineering education and technical training.',
     'common.present': 'Present',
-    'education.ets.degree': 'Bachelor of Engineering — Software Engineering',
-    'education.ets.text': 'Current studies include software development, data structures and algorithms, software architecture, and computer networks.',
     'education.poly.degree': 'Bachelor of Engineering — Biomedical Engineering',
     'education.poly.text': 'Coursework and projects in biomedical instrumentation, medical imaging, numerical methods, electronics, data analysis, and medical-device regulation.',
     'certs.kicker': 'Certifications',
@@ -104,7 +102,7 @@ const translations = {
     'nav.skills': 'Compétences',
     'nav.education': 'Formation',
     'nav.contact': 'Contact',
-    'hero.eyebrow': 'Génie biomédical × Génie logiciel',
+    'hero.eyebrow': 'Génie biomédical × Systèmes embarqués',
     'hero.intro': 'Bonjour, je suis',
     'hero.title': 'Je développe à l’intersection des systèmes embarqués, de l’électronique, du logiciel et des dispositifs médicaux.',
     'hero.description': 'Diplômé en génie biomédical de Polytechnique Montréal, étudiant en génie logiciel à l’ÉTS et stagiaire en R&D sur le développement du contrôle embarqué d’un système médical de refroidissement cutané par air froid.',
@@ -121,7 +119,7 @@ const translations = {
     'about.kicker': '01 — À propos',
     'about.title': 'De l’ingénierie entre matériel et logiciel.',
     'about.p1': 'Mon parcours combine génie biomédical, électronique, instrumentation et développement logiciel. J’aime particulièrement les projets où le code interagit avec du matériel réel : capteurs, actionneurs, logique de contrôle, acquisition de données et prototypes physiques.',
-    'about.p2': 'Je développe actuellement cette base par mes études en génie logiciel à l’ÉTS tout en l’appliquant en R&D de dispositifs médicaux chez Laser Medical Canada.',
+    'about.p2': 'J’applique actuellement ce parcours multidisciplinaire en R&D de dispositifs médicaux chez Laser Medical Canada.',
     'experience.kicker': '02 — Expérience',
     'experience.title': 'Travail d’ingénierie actuel',
     'experience.subtitle': 'R&D pratique, prototypage, essais et intégration de systèmes.',
@@ -165,10 +163,8 @@ const translations = {
     'skills.biomed.title': 'Biomédical & validation',
     'skills.biomed.text': 'Instrumentation biomédicale, R&D de dispositifs médicaux, validation expérimentale, analyse de signaux/données, documentation technique.',
     'education.kicker': '05 — Formation',
-    'education.title': 'Deux parcours d’ingénierie complémentaires.',
+    'education.title': 'Formation en génie biomédical et perfectionnement technique.',
     'common.present': 'Présent',
-    'education.ets.degree': 'Baccalauréat en génie — Génie logiciel',
-    'education.ets.text': 'Études actuelles en développement logiciel, structures de données et algorithmes, architecture logicielle et réseaux informatiques.',
     'education.poly.degree': 'Baccalauréat en génie — Génie biomédical',
     'education.poly.text': 'Cours et projets en instrumentation biomédicale, imagerie médicale, méthodes numériques, électronique, analyse de données et réglementation des dispositifs médicaux.',
     'certs.kicker': 'Certifications',
@@ -208,8 +204,8 @@ function applyLanguage(lang) {
   const description = document.querySelector('meta[name="description"]');
   if (description) {
     description.content = selected === 'fr'
-      ? 'Carlos Nazzarian — diplômé en génie biomédical et étudiant en génie logiciel, avec un intérêt pour les systèmes embarqués, l’électronique, le contrôle et la R&D de dispositifs médicaux.'
-      : 'Carlos Nazzarian — Biomedical Engineering graduate and Software Engineering student focused on embedded systems, electronics, control, software, and medical device R&D.';
+      ? 'Carlos Nazzarian — diplômé en génie biomédical avec un intérêt pour les systèmes embarqués, l’électronique, le contrôle et la R&D de dispositifs médicaux.'
+      : 'Carlos Nazzarian — Biomedical Engineering graduate focused on embedded systems, electronics, control, software, and medical device R&D.';
   }
 
   try {
