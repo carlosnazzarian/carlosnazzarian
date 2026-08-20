@@ -1,481 +1,384 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carlos Nazzarian | Portfolio</title>
+  <meta name="theme-color" content="#08111f" />
   <meta
     name="description"
-    content="Portfolio de Carlos Nazzarian, diplômé en génie biomédical spécialisé en instrumentation, systèmes embarqués, électronique et R&D."
+    content="Carlos Nazzarian — Biomedical Engineering graduate and Software Engineering student focused on embedded systems, electronics, control, software, and medical device R&D."
   />
+  <meta property="og:title" content="Carlos Nazzarian | Engineering Portfolio" />
+  <meta
+    property="og:description"
+    content="Biomedical Engineering × Software Engineering × Embedded Systems × Medical Device R&D"
+  />
+  <meta property="og:type" content="website" />
+  <title>Carlos Nazzarian | Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <nav class="navbar container">
-      <a href="#home" class="logo">Carlos Nazzarian</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-      <div class="nav-right">
-        <div class="language-switcher" aria-label="Language switcher">
-          <button id="lang-fr" class="lang-btn active" type="button">FR</button>
-          <button id="lang-en" class="lang-btn" type="button">EN</button>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Carlos Nazzarian home">
+        <span class="brand-mark">CN</span>
+        <span class="brand-name">Carlos Nazzarian</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <div class="nav-panel" id="nav-links">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#education" data-i18n="nav.education">Education</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+
+        <div class="language-switcher" aria-label="Language">
+          <button class="lang-btn active" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="fr">FR</button>
         </div>
-
-        <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
-          ☰
-        </button>
       </div>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home" data-i18n="nav.home">Accueil</a></li>
-        <li><a href="#about" data-i18n="nav.about">À propos</a></li>
-        <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
-        <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
-        <li><a href="#experience" data-i18n="nav.experience">Expérience</a></li>
-        <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
-        <li><a href="#education" data-i18n="nav.education">Formation</a></li>
-        <li><a href="#highlights" data-i18n="nav.highlights">Réalisations</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-        <li>
-          <a id="cv-link-nav" href="cv-fr.pdf" target="_blank" class="nav-cv" data-i18n="nav.cv">
-            CV
-          </a>
-        </li>
-      </ul>
     </nav>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero section" id="home">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <p class="hero-tag" data-i18n="hero.tag">Portfolio professionnel</p>
-          <h1 data-i18n="hero.title">
-            Bonjour, je suis <span>Carlos Nazzarian</span>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Biomedical Engineering × Software Engineering</p>
+          <h1>
+            <span data-i18n="hero.intro">Hi, I'm</span>
+            <span class="accent-text">Carlos Nazzarian.</span>
           </h1>
+          <p class="hero-title" data-i18n="hero.title">
+            I build at the intersection of embedded systems, electronics, software, and medical devices.
+          </p>
           <p class="hero-description" data-i18n="hero.description">
-            Diplômé en génie biomédical spécialisé en systèmes embarqués,
-            instrumentation électronique et validation expérimentale.
+            Biomedical Engineering graduate from Polytechnique Montréal, Software Engineering student at ÉTS, and R&D intern developing embedded control electronics for a medical cold-air skin cooling system.
           </p>
 
-          <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary" data-i18n="hero.projectsBtn">
-              Voir mes projets
-            </a>
-            <a id="-link-hero" href="cv-fr.pdf" target="_blank" class="btn btn-secondary" data-i18n="hero.cvBtn">
-              Ouvrir mon CV
-            </a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#experience" data-i18n="hero.experienceBtn">View current R&D work</a>
+            <a class="btn btn-secondary resume-link" href="cv-en.pdf" target="_blank" rel="noopener" data-i18n="hero.resumeBtn">Resume</a>
+          </div>
+
+          <div class="social-row" aria-label="Professional profiles">
+            <a href="https://github.com/carlosnazzarian" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/carlos-nazzarian-3a0a7b21b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:carlos.naz58@gmail.com">Email ↗</a>
           </div>
         </div>
 
-        <div class="hero-image">
-          <img src="profile.jpg" alt="Photo de profil de Carlos Nazzarian" id="profile-image" />
+        <div class="hero-side reveal">
+          <div class="profile-shell">
+            <div class="profile-image-wrap">
+              <img src="profile.jpg" alt="Carlos Nazzarian" class="profile-image" />
+            </div>
+            <div class="availability-card">
+              <span class="status-dot"></span>
+              <div>
+                <strong data-i18n="hero.currentRoleLabel">Current role</strong>
+                <span data-i18n="hero.currentRole">Biomedical Engineering / R&D Intern</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="focus-grid">
+            <div class="focus-card">
+              <span class="focus-label" data-i18n="hero.focus1Label">Current focus</span>
+              <strong data-i18n="hero.focus1">Embedded control</strong>
+            </div>
+            <div class="focus-card">
+              <span class="focus-label" data-i18n="hero.focus2Label">Domain</span>
+              <strong data-i18n="hero.focus2">Medical devices</strong>
+            </div>
+            <div class="focus-card">
+              <span class="focus-label" data-i18n="hero.focus3Label">Tools</span>
+              <strong>C/C++ · Arduino · KiCad</strong>
+            </div>
+            <div class="focus-card">
+              <span class="focus-label" data-i18n="hero.focus4Label">Location</span>
+              <strong>Laval / Montréal, QC</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="about section" id="about">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="about.title">À propos</h2>
-          <p data-i18n="about.subtitle">Résumé professionnel</p>
+    <section class="section" id="about">
+      <div class="container two-col-section">
+        <div class="section-heading reveal">
+          <p class="section-kicker" data-i18n="about.kicker">01 — About</p>
+          <h2 data-i18n="about.title">Engineering across hardware and software.</h2>
         </div>
 
-        <div class="about-card">
+        <div class="about-copy reveal">
           <p data-i18n="about.p1">
-            Je suis un diplômé récent en génie biomédical de Polytechnique Montréal,
-            avec un intérêt marqué pour les systèmes embarqués, l’électronique,
-            l’instrumentation, la validation et la recherche et développement.
+            My background combines biomedical engineering, electronics, instrumentation, and software development. I enjoy projects where code interacts with real hardware: sensors, actuators, control logic, data acquisition, and physical prototypes.
           </p>
           <p data-i18n="about.p2">
-            Mon parcours m’a permis de travailler sur des projets combinant matériel
-            et logiciel, notamment la conception de PCB, l’acquisition de signaux,
-            le prototypage expérimental, l’automatisation en Python et l’analyse
-            de données en laboratoire.
+            I am currently expanding that foundation through Software Engineering studies at ÉTS while applying it in medical-device R&D at Laser Medical Canada.
           </p>
-          <p data-i18n="about.p3">
-            Je recherche actuellement une opportunité d’entrée en carrière où je
-            pourrai contribuer à des systèmes techniques concrets dans les domaines
-            du biomédical, de l’électronique, des systèmes embarqués ou de la R&D.
-          </p>
+          <div class="tag-list" aria-label="Areas of interest">
+            <span>Embedded Systems</span>
+            <span>Medical Devices</span>
+            <span>Electronics</span>
+            <span>Control</span>
+            <span>Python</span>
+            <span>Hardware / Software Integration</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERTISE -->
-    <section class="expertise section" id="expertise">
+    <section class="section section-dark" id="experience">
       <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="expertise.title">Expertise</h2>
-          <p data-i18n="expertise.subtitle">Ce que je peux apporter à votre équipe</p>
+        <div class="section-heading centered reveal">
+          <p class="section-kicker" data-i18n="experience.kicker">02 — Experience</p>
+          <h2 data-i18n="experience.title">Current engineering work</h2>
+          <p data-i18n="experience.subtitle">Hands-on R&D, prototyping, testing, and system integration.</p>
         </div>
 
-        <div class="skills-grid expertise-grid">
-          <div class="skill-box" data-i18n="expertise.item1">Développement de systèmes embarqués</div>
-          <div class="skill-box" data-i18n="expertise.item2">Instrumentation électronique</div>
-          <div class="skill-box" data-i18n="expertise.item3">Conception et débogage de PCB</div>
-          <div class="skill-box" data-i18n="expertise.item4">Acquisition et traitement de signaux</div>
-          <div class="skill-box" data-i18n="expertise.item5">Validation et essais matériels</div>
-          <div class="skill-box" data-i18n="expertise.item6">Automatisation de tests avec Python</div>
-          <div class="skill-box" data-i18n="expertise.item7">Intégration de systèmes biomédicaux</div>
-          <div class="skill-box" data-i18n="expertise.item8">Conception expérimentale</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects section" id="projects">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="projects.title">Projets</h2>
-          <p data-i18n="projects.subtitle">Projets académiques et techniques pertinents</p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <img src="project1.png" alt="Conception PCB pour potentiostat" class="project-image" />
-            <div class="project-content">
-              <h3 data-i18n="projects.pcb.title">Conception PCB pour potentiostat (Stage - Laboratoire BASyL)</h3>
-              <p data-i18n="projects.pcb.desc">
-                Conception et réalisation d’un PCB pour un système de potentiostat afin
-                de réduire le bruit observé sur les prototypes montés sur breadboard.
-              </p>
-              <ul class="project-list">
-                <li data-i18n="projects.pcb.b1">Optimisation du placement et du routage des composantes</li>
-                <li data-i18n="projects.pcb.b2">Validation par mesures comparatives à l’oscilloscope</li>
-                <li data-i18n="projects.pcb.b3">Amélioration de la stabilité et de la fiabilité du signal</li>
-              </ul>
-              <p class="project-tech">
-                <strong data-i18n="projects.tech">Technologies :</strong>
-                <span data-i18n="projects.pcb.techList">
-                KiCad, électronique analogique, oscilloscopes, validation expérimentale
-                </span>
-              </p>
+        <article class="featured-experience reveal">
+          <div class="featured-topline">
+            <div>
+              <p class="company">Laser Medical Canada</p>
+              <h3 data-i18n="experience.lmc.title">Biomedical Engineering / R&D Intern</h3>
             </div>
-          </article>
+            <div class="date-badge" data-i18n="experience.lmc.date">June 2026 — Present</div>
+          </div>
 
-          <article class="project-card">
-            <img src="project2.png" alt="Projet LSCI" class="project-image" />
-            <div class="project-content">
-              <h3 data-i18n="projects.lsci.title">Projet LSCI (Projet de fin d'études)</h3>
-              <p data-i18n="projects.lsci.desc">
-                Développement d’un système d’imagerie par contraste de speckle laser
-                combinant une source laser, une caméra et des scripts Python pour
-                l’acquisition et le traitement en temps réel.
+          <div class="featured-grid">
+            <div class="featured-copy">
+              <p class="lead" data-i18n="experience.lmc.lead">
+                Developing a cold-air skin cooling system intended to support medical laser treatments, with work spanning thermal-system analysis, embedded control, electronics, and prototype validation.
               </p>
-              <ul class="project-list">
-                <li data-i18n="projects.lsci.b1">Intégration d’un montage optique expérimental</li>
-                <li data-i18n="projects.lsci.b2">Optimisation de l’illumination, de l’exposition et de l’acquisition</li>
-                <li data-i18n="projects.lsci.b3">Production de documentation technique et de procédures de test</li>
+              <ul class="clean-list">
+                <li data-i18n="experience.lmc.b1">Studied refrigeration-system architecture, thermodynamic principles, and technical documentation to identify operating and control requirements.</li>
+                <li data-i18n="experience.lmc.b2">Evaluated a 24 VDC refrigeration unit and used the results to guide a transition toward a higher-capacity compressor-based architecture.</li>
+                <li data-i18n="experience.lmc.b3">Developed Arduino C/C++ control logic for temperature monitoring, fan and compressor control, pressure-switch supervision, treatment states, and safety alarms.</li>
+                <li data-i18n="experience.lmc.b4">Designed preliminary electronic schematics and PCB routing in KiCad and validated the control logic on breadboard prototypes.</li>
+                <li data-i18n="experience.lmc.b5">Integrated PWM, relays, MOSFET-based control, RTC/EEPROM error logging, user-interface communication, and hands-on SMD soldering/troubleshooting.</li>
               </ul>
-              <p class="project-tech">
-                <strong data-i18n="projects.tech">Technologies :</strong>
-                <span data-i18n="projects.lsci.techList">
-                Python, traitement d’images, acquisition temps réel, instrumentation
-                </span>
-              </p>
             </div>
-          </article>
 
-          <article class="project-card">
-            <img src="project3.png" alt="Segmentation d’images par deep learning" class="project-image" />
-            <div class="project-content">
-              <h3 data-i18n="projects.dl.title">Segmentation d’images par deep learning (Projet académique)</h3>
-              <p data-i18n="projects.dl.desc">
-                Préparation de jeux de données de microscopie, prétraitement, entraînement
-                de modèles, inférence et analyse morphométrique pour la segmentation d’axones.
-              </p>
-              <ul class="project-list">
-                <li data-i18n="projects.dl.b1">Préparation de données et annotations manuelles</li>
-                <li data-i18n="projects.dl.b2">Automatisation des flux de travail avec Python et Bash</li>
-                <li data-i18n="projects.dl.b3">Évaluation quantitative des performances du modèle</li>
-              </ul>
-              <p class="project-tech">
-                <strong data-i18n="projects.tech">Technologies :</strong>
-                <span data-i18n="projects.dl.techList">
-                Python, Bash, analyse d’images, apprentissage automatique
-                </span>
-              </p>
+            <div class="system-card" aria-label="High-level control architecture">
+              <div class="system-chip">Sensors</div>
+              <div class="system-arrow">↓</div>
+              <div class="system-chip system-chip-main">Arduino / C++ Control</div>
+              <div class="system-split">
+                <div><span>↙</span><strong>Fan / PWM</strong></div>
+                <div><span>↓</span><strong>Safety</strong></div>
+                <div><span>↘</span><strong>Compressor</strong></div>
+              </div>
+              <div class="system-arrow">↓</div>
+              <div class="system-chip">HMI · RTC · EEPROM</div>
+              <p data-i18n="experience.lmc.diagramNote">High-level architecture only — no proprietary design details shown.</p>
             </div>
-          </article>
+          </div>
 
-          <article class="project-card">
-            <img src="project4.png" alt="Développement d’un système microfluidique" class="project-image" />
-            <div class="project-content">
-              <h3 data-i18n="projects.micro.title">Développement d’un système microfluidique (Stage - Laboratoire BASyL)</h3>
-              <p data-i18n="projects.micro.desc">
-                Conception d’une chambre microfluidique compacte imprimée en 3D pour
-                l’intégration d’électrodes sur papier et la réalisation d’essais expérimentaux.
-              </p>
-              <ul class="project-list">
-                <li data-i18n="projects.micro.b1">Intégration des composantes fluidiques et mécaniques</li>
-                <li data-i18n="projects.micro.b2">Vérification de l’écoulement et de l’étanchéité</li>
-                <li data-i18n="projects.micro.b3">Support aux essais électrochimiques et à l’analyse des réponses</li>
-              </ul>
-              <p class="project-tech">
-                <strong data-i18n="projects.tech">Technologies :</strong>
-                <span data-i18n="projects.micro.techList">
-                Impression 3D, microfluidique, expérimentation, intégration de systèmes
-                </span>
-              </p>
-            </div>
-          </article>
-          <article class="project-card">
-  <img src="radar-ui.png" alt="Système Mini Radar" class="project-image" />
-
-  <div class="project-content">
-    <h3 data-i18n="projects.radar.title">Système Mini Radar (Projet personnel)</h3>
-
-    <p data-i18n="projects.radar.desc">
-      Système radar en temps réel utilisant Arduino, un capteur ultrasonique,
-      un servomoteur et une interface Python pour la visualisation et le contrôle.
-    </p>
-
-    <ul class="project-list">
-      <li data-i18n="projects.radar.b1">
-        Communication série en temps réel entre Arduino et Python
-      </li>
-      <li data-i18n="projects.radar.b2">
-        Modes de balayage automatique et manuel
-      </li>
-      <li data-i18n="projects.radar.b3">
-        Interface radar interactive développée avec Pygame
-      </li>
-      <li data-i18n="projects.radar.b4">
-        Système de contrôle via joystick et interface logicielle
-      </li>
-    </ul>
-
-    <p class="project-tech">
-      <strong data-i18n="projects.tech">Technologies :</strong>
-      <span data-i18n="projects.radar.techList">
-      Arduino, Python, Pygame, Systèmes embarqués, Communication série
-      </span>
-    </p>
-
-    <a href="projects/radar.html" style="color:#60a5fa; font-weight:bold;">
-      Voir les détails →
-    </a>
-  </div>
-</article>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="experience section" id="experience">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="experience.title">Expérience</h2>
-          <p data-i18n="experience.subtitle">Expérience professionnelle et de recherche</p>
-        </div>
+          <div class="tech-strip">
+            <span>C/C++</span><span>Arduino</span><span>KiCad</span><span>PWM</span><span>GPIO</span><span>NTC / temperature sensing</span><span>RTC</span><span>EEPROM</span><span>SMD</span>
+          </div>
+        </article>
 
         <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date" data-i18n="experience.basyL.date">Été 2024</div>
-            <div class="timeline-content">
-              <h3 data-i18n="experience.basyL.title">Stagiaire de recherche — Laboratoire BASyL, Polytechnique Montréal</h3>
-              <p data-i18n="experience.basyL.desc">
-                Contribution à des projets d’instrumentation et d’expérimentation biomédicale
-                incluant la conception de PCB, des systèmes microfluidiques et la validation
-                de montages expérimentaux.
-              </p>
-              <ul>
-                <li data-i18n="experience.basyL.b1">Validation matérielle avec oscilloscopes et outils de mesure</li>
-                <li data-i18n="experience.basyL.b2">Exécution de procédures expérimentales et analyse de résultats</li>
-                <li data-i18n="experience.basyL.b3">Rédaction de documentation technique et d’ingénierie</li>
+          <article class="timeline-card reveal">
+            <div class="timeline-date" data-i18n="experience.basyl.date">Summer 2024</div>
+            <div>
+              <h3 data-i18n="experience.basyl.title">Research Intern — BASyL Laboratory, Polytechnique Montréal</h3>
+              <p data-i18n="experience.basyl.desc">Worked on biomedical instrumentation and experimental systems involving PCB design, microfluidics, signal quality, and laboratory validation.</p>
+              <ul class="compact-list">
+                <li data-i18n="experience.basyl.b1">Designed and optimized a PCB to improve signal quality and reduce electrical noise.</li>
+                <li data-i18n="experience.basyl.b2">Validated system performance through experimental data acquisition and measurement tools.</li>
+                <li data-i18n="experience.basyl.b3">Integrated electronic, mechanical, and microfluidic components and documented test results.</li>
               </ul>
             </div>
-          </div>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-date" data-i18n="experience.ct.date">2022 – présent</div>
-            <div class="timeline-content">
-              <h3 data-i18n="experience.ct.title">Préposé au service à la clientèle — Couche-Tard</h3>
-              <p data-i18n="experience.ct.desc">
-                Expérience dans un environnement rapide nécessitant autonomie,
-                communication, rigueur et résolution de problèmes au quotidien.
-              </p>
+          <article class="timeline-card reveal">
+            <div class="timeline-date" data-i18n="experience.ct.date">May 2022 — May 2026</div>
+            <div>
+              <h3 data-i18n="experience.ct.title">Customer Service Associate — Couche-Tard</h3>
+              <p data-i18n="experience.ct.desc">Worked in a fast-paced environment requiring autonomy, prioritization, communication, and problem-solving; also supported the onboarding of new employees.</p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section class="skills section" id="skills">
+    <section class="section" id="projects">
       <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="skills.title">Compétences</h2>
-          <p data-i18n="skills.subtitle">Compétences techniques principales</p>
+        <div class="section-heading reveal">
+          <p class="section-kicker" data-i18n="projects.kicker">03 — Selected Projects</p>
+          <h2 data-i18n="projects.title">Projects that connect software to the physical world.</h2>
         </div>
 
-        <div class="skills-groups">
-          <div class="skill-group-card">
-            <h3 data-i18n="skills.group1.title">Systèmes embarqués et électronique</h3>
-            <p data-i18n="skills.group1.text">
-              Arduino, C/C++, acquisition de signaux, capteurs, intégration matériel-logiciel, conception de PCB
-            </p>
-          </div>
+        <div class="project-grid">
+          <article class="project-card project-card-large reveal">
+            <div class="project-image-wrap">
+              <img src="project1.png" alt="Potentiostat PCB design" class="project-image" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>PCB / Instrumentation</span><span>2024</span></div>
+              <h3 data-i18n="projects.pcb.title">Low-noise Potentiostat PCB</h3>
+              <p data-i18n="projects.pcb.desc">Designed and optimized a PCB for an electrochemical measurement system to reduce noise compared with breadboard prototypes and improve measurement stability.</p>
+              <div class="chip-row"><span>KiCad</span><span>Analog Electronics</span><span>Oscilloscope</span></div>
+            </div>
+          </article>
 
-          <div class="skill-group-card">
-            <h3 data-i18n="skills.group2.title">Instrumentation et validation</h3>
-            <p data-i18n="skills.group2.text">
-              Oscilloscopes, multimètres, DAQ, dépannage matériel, calibration, vérification de performance
-            </p>
-          </div>
+          <article class="project-card reveal">
+            <div class="project-image-wrap">
+              <img src="project2.png" alt="Laser Speckle Contrast Imaging system" class="project-image" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Biomedical Imaging</span><span>2025</span></div>
+              <h3 data-i18n="projects.lsci.title">Laser Speckle Contrast Imaging System</h3>
+              <p data-i18n="projects.lsci.desc">Built an optical acquisition workflow combining a laser source, camera, and Python-based real-time acquisition and processing.</p>
+              <div class="chip-row"><span>Python</span><span>Imaging</span><span>Data Acquisition</span></div>
+            </div>
+          </article>
 
-          <div class="skill-group-card">
-            <h3 data-i18n="skills.group3.title">Programmation et automatisation</h3>
-            <p data-i18n="skills.group3.text">
-              Python, MATLAB, Bash, automatisation de tests, pipelines d’acquisition et de traitement
-            </p>
-          </div>
+          <article class="project-card reveal">
+            <div class="project-image-wrap">
+              <img src="project3.png" alt="Deep learning medical image segmentation" class="project-image" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Deep Learning</span><span>2024</span></div>
+              <h3 data-i18n="projects.dl.title">Medical Image Segmentation</h3>
+              <p data-i18n="projects.dl.desc">Prepared microscopy datasets, trained segmentation models, automated processing with Python/Bash, and evaluated model performance.</p>
+              <div class="chip-row"><span>Python</span><span>nnU-Net</span><span>Bash</span></div>
+            </div>
+          </article>
 
-          <div class="skill-group-card">
-            <h3 data-i18n="skills.group4.title">Analyse de données</h3>
-            <p data-i18n="skills.group4.text">
-              NumPy, SciPy, Matplotlib, traitement d’images, analyse expérimentale
-            </p>
-          </div>
-
-          <div class="skill-group-card">
-            <h3 data-i18n="skills.group5.title">CAD et prototypage</h3>
-            <p data-i18n="skills.group5.text">
-              KiCad, CATIA V5, FreeCAD, impression 3D, fabrication et intégration de prototypes
-            </p>
-          </div>
+          <article class="project-card reveal">
+            <div class="project-image-wrap">
+              <img src="radar-ui.png" alt="Mini radar interface" class="project-image" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Personal Project</span><span>Embedded + UI</span></div>
+              <h3 data-i18n="projects.radar.title">Mini Radar System</h3>
+              <p data-i18n="projects.radar.desc">Real-time Arduino radar prototype using an ultrasonic sensor, servo, serial communication, and a Python/Pygame visualization interface.</p>
+              <div class="project-footer">
+                <div class="chip-row"><span>Arduino</span><span>Python</span><span>Pygame</span></div>
+                <a href="projects/radar.html" class="text-link" data-i18n="projects.details">View details →</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="education section" id="education">
+    <section class="section section-soft" id="skills">
       <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="education.title">Formation</h2>
-          <p data-i18n="education.subtitle">Parcours académique et certificats</p>
+        <div class="section-heading centered reveal">
+          <p class="section-kicker" data-i18n="skills.kicker">04 — Technical Toolkit</p>
+          <h2 data-i18n="skills.title">A practical hardware + software skill set.</h2>
         </div>
 
-        <div class="about-card">
-          <p><strong data-i18n="education.degreeLabel">Diplôme :</strong> <span data-i18n="education.degreeValue">Baccalauréat en génie biomédical — Polytechnique Montréal</span></p>
-          <p><strong data-i18n="education.dateLabel">Période :</strong> <span data-i18n="education.dateValue">2021 – 2025</span></p>
-          <p><strong data-i18n="education.gpaLabel">Moyenne cumulative :</strong> <span data-i18n="education.gpaValue">3,13 / 4,00</span></p>
-
-          <h3 class="subsection-title" data-i18n="education.courseworkTitle">Cours techniques clés</h3>
-          <ul class="education-list">
-            <li data-i18n="education.c1">Circuits électriques</li>
-            <li data-i18n="education.c2">Instrumentation et mesures biomédicales</li>
-            <li data-i18n="education.c3">Champs électromagnétiques</li>
-            <li data-i18n="education.c4">Traitement numérique d’images médicales</li>
-            <li data-i18n="education.c5">Principes d’imagerie biomédicale</li>
-            <li data-i18n="education.c6">Modélisation et commande en physiologie</li>
-            <li data-i18n="education.c7">Réseaux informatiques</li>
-          </ul>
-
-          <h3 class="subsection-title" data-i18n="education.certTitle">Certificats</h3>
-
-        <ul class="education-list">
-
-        <li>
-        <a href="https://coursera.org/verify/XTFT56JDR14F" target="_blank">
-          Programming for Everybody (Getting Started with Python) — Coursera
-    </a>
-  </li>
-
-  <li>
-    <a href="https://coursera.org/verify/9H63B1S281XP" target="_blank">
-      Python Data Structures — Coursera
-    </a>
-  </li>
-
-  <li>
-    <a href="https://coursera.org/verify/HNWP10UVXUL1" target="_blank">
-      Using Python to Access Web Data — Coursera
-    </a>
-  </li>
-
-  <li>
-    <a href="https://coursera.org/verify/ME2NEUWVJ1HX" target="_blank">
-      Using Databases with Python — Coursera
-    </a>
-  </li>
-
-  <li>
-    <a href="https://coursera.org/verify/CU5T9ZPSIO65" target="_blank">
-      Medical Image Processing — MathWorks (Coursera)
-    </a>
-  </li>
-
-  <li>
-    <a href="https://coursera.org/verify/83I0K9X8NDE0" target="_blank">
-      Advanced Embedded Systems with Arduino — Packt (Coursera)
-    </a>
-  </li>
-
-</ul>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <span class="skill-number">01</span>
+            <h3 data-i18n="skills.embedded.title">Embedded & Control</h3>
+            <p data-i18n="skills.embedded.text">C/C++, Arduino, state machines, PWM, GPIO, sensor acquisition, actuator control, safety logic.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">02</span>
+            <h3 data-i18n="skills.electronics.title">Electronics & Prototyping</h3>
+            <p data-i18n="skills.electronics.text">KiCad, schematic capture, preliminary PCB layout, breadboards, relays, MOSFETs, SMD soldering, oscilloscope, multimeter.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">03</span>
+            <h3 data-i18n="skills.software.title">Software & Data</h3>
+            <p data-i18n="skills.software.text">Python, NumPy, SciPy, Matplotlib, Bash, Git, data processing, test automation, real-time acquisition.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">04</span>
+            <h3 data-i18n="skills.biomed.title">Biomedical & Validation</h3>
+            <p data-i18n="skills.biomed.text">Biomedical instrumentation, medical-device R&D, experimental validation, signal/data analysis, technical documentation.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- HIGHLIGHTS -->
-    <section class="highlights section" id="highlights">
+    <section class="section" id="education">
       <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="highlights.title">Réalisations</h2>
-          <p data-i18n="highlights.subtitle">Quelques points forts de mon parcours</p>
+        <div class="section-heading reveal">
+          <p class="section-kicker" data-i18n="education.kicker">05 — Education</p>
+          <h2 data-i18n="education.title">Two complementary engineering paths.</h2>
         </div>
 
-        <div class="about-card">
-          <ul class="highlight-list">
-            <li data-i18n="highlights.h1">Conçu et validé des systèmes matériels en environnement de laboratoire</li>
-            <li data-i18n="highlights.h2">Amélioré la qualité du signal dans un système de mesure sur PCB</li>
-            <li data-i18n="highlights.h3">Développé des pipelines Python pour l’acquisition et le traitement d’images en temps réel</li>
-            <li data-i18n="highlights.h4">Automatisé des flux de traitement et d’analyse de données expérimentales</li>
-            <li data-i18n="highlights.h5">Contribué à des projets interdisciplinaires combinant électronique, logiciel et expérimentation biomédicale</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <div class="education-grid">
+          <article class="education-card reveal">
+            <div class="education-year">2025 — <span data-i18n="common.present">Present</span></div>
+            <h3 data-i18n="education.ets.degree">Bachelor of Engineering — Software Engineering</h3>
+            <p class="school">École de technologie supérieure (ÉTS), Montréal</p>
+            <p data-i18n="education.ets.text">Current studies include software development, data structures and algorithms, software architecture, and computer networks.</p>
+          </article>
 
-    <!-- CONTACT -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="contact.title">Contact</h2>
-          <p data-i18n="contact.subtitle">Vous pouvez me joindre ici</p>
+          <article class="education-card reveal">
+            <div class="education-year">2021 — 2025</div>
+            <h3 data-i18n="education.poly.degree">Bachelor of Engineering — Biomedical Engineering</h3>
+            <p class="school">Polytechnique Montréal</p>
+            <p data-i18n="education.poly.text">Coursework and projects in biomedical instrumentation, medical imaging, numerical methods, electronics, data analysis, and medical-device regulation.</p>
+          </article>
         </div>
 
-        <div class="contact-card">
-          <p><strong data-i18n="contact.nameLabel">Nom :</strong> Carlos Nazzarian</p>
-          <p><strong data-i18n="contact.locationLabel">Localisation :</strong> Laval, QC, Canada</p>
-          <p><strong data-i18n="contact.phoneLabel">Téléphone :</strong> 514-662-4083</p>
-          <p>
-            <strong data-i18n="contact.emailLabel">Email :</strong>
-            <a href="mailto:carlos.naz58@gmail.com">carlos.naz58@gmail.com</a>
-          </p>
-          <p>
-            <strong data-i18n="contact.linkedinLabel">LinkedIn :</strong>
-            <a href="https://www.linkedin.com/in/carlos-nazzarian-3a0a7b21b/" target="_blank" rel="noopener noreferrer">
-              linkedin.com/in/carlos-nazzarian-3a0a7b21b
+        <div class="certifications reveal">
+          <div>
+            <p class="section-kicker" data-i18n="certs.kicker">Certifications</p>
+            <h3 data-i18n="certs.title">Selected continuing education</h3>
+          </div>
+          <div class="cert-list">
+            <a href="https://coursera.org/verify/83I0K9X8NDE0" target="_blank" rel="noopener">
+              <strong>Advanced Embedded Systems with Arduino</strong>
+              <span>Packt / Coursera · 2025 ↗</span>
             </a>
-          </p>
-          <p>
-            <strong data-i18n="contact.cvLabel">CV :</strong>
-            <a id="cv-link-contact" href="cv-fr.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contact.cvOpen">
-              Ouvrir le CV
+            <a href="https://coursera.org/verify/CU5T9ZPSIO65" target="_blank" rel="noopener">
+              <strong>Medical Image Processing</strong>
+              <span>MathWorks / Coursera · 2025 ↗</span>
             </a>
-          </p>
+            <a href="https://coursera.org/verify/9H63B1S281XP" target="_blank" rel="noopener">
+              <strong>Python Data Structures</strong>
+              <span>University of Michigan / Coursera · 2025 ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid reveal">
+        <div>
+          <p class="section-kicker" data-i18n="contact.kicker">06 — Contact</p>
+          <h2 data-i18n="contact.title">Let's connect.</h2>
+          <p data-i18n="contact.text">Interested in embedded systems, firmware, biomedical R&D, software, and hardware/software integration.</p>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:carlos.naz58@gmail.com"><span>Email</span><strong>carlos.naz58@gmail.com ↗</strong></a>
+          <a href="https://www.linkedin.com/in/carlos-nazzarian-3a0a7b21b/" target="_blank" rel="noopener"><span>LinkedIn</span><strong>Carlos Nazzarian ↗</strong></a>
+          <a href="https://github.com/carlosnazzarian" target="_blank" rel="noopener"><span>GitHub</span><strong>@carlosnazzarian ↗</strong></a>
+          <a class="resume-link" href="cv-en.pdf" target="_blank" rel="noopener"><span data-i18n="contact.resumeLabel">Resume</span><strong data-i18n="contact.resumeText">Open PDF ↗</strong></a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p data-i18n="footer.text">© 2026 Carlos Nazzarian. Tous droits réservés.</p>
+    <div class="container footer-inner">
+      <p>© 2026 Carlos Nazzarian</p>
+      <a href="#top" data-i18n="footer.back">Back to top ↑</a>
     </div>
   </footer>
 
